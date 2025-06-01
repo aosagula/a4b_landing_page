@@ -1,6 +1,9 @@
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import 'bootstrap/dist/css/bootstrap.min.css';
-
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap');
 @font-face {
     font-family: 'Averox';
     src: url('/fonts/averox.ttf') format('truetype');
@@ -10,7 +13,7 @@
   
 
 body {
-    font-family: 'Averox', sans-serif;
+    font-family: 'Monserrat', sans-serif;
 
     background-color: black;
 }
@@ -20,10 +23,10 @@ nav-dark{
 }
 
 h1, h2, h3 {
-    font-family: 'Averox', sans-serif;
+    font-family: 'Comfortaa', sans-serif;
   }
 .hero-section {
-    background-image: url('/images/bg2_05.jpg');
+    background-image: url('/images/n8n_10.jpeg');
     background-size: cover;          /* ocupa todo sin deformar */
     background-position: center;
     background-repeat: no-repeat;
@@ -51,19 +54,120 @@ h1, h2, h3 {
     color: rgb(255, 255, 255);
   }
 
-.lead{
-    color: aliceblue;
-    font-size: 1.25rem;
-}
-.display-4{
-    color: aliceblue;
+
+  .vision-section{
+    background-image: url('/images/bg_vision_50.jpg');
+    background-size: cover;          /* ocupa todo sin deformar */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: top;
+    text-align: center;
+    position: relative;
+    isolation: isolate;   
+    margin-top: 60px!important;
 }
 
-.hero-overlay {
-    background-color: rgba(0, 0, 0, 0.5);
+.vision-text{
+    font-size: large;
+}
+.what-section{
+    background-image: url('/images/n8n_white_50.png');
+    background-size: cover;          /* ocupa todo sin deformar */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: top;
+    text-align: center;
+    position: relative;
+    isolation: isolate;   
+    margin-top: 60px!important;
+}
+.text-overlay-box {
+    background-color: rgba(0, 0, 0, 0.5); /* negro translúcido */
+    color: white;
     padding: 2rem;
     border-radius: 0.5rem;
+    max-width: 800px;
+    margin: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  @media (max-width: 768px) {
+    .text-overlay-box {
+      padding: 1.25rem;
+      font-size: 0.95rem;
+    }
+  }
+
+.how-section{
+    background-image: url('/images/bg2_05.jpg');
+    background-size: cover;         
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center; 
+    justify-content: top; 
+    /* text-align: center;  */
+    position: relative; 
+    isolation: isolate;   
+    margin-top: 60px!important;
+} 
+
+.list-group-item{
+    padding: 100px;
 }
+.how-step-item {
+    /* background-color: rgba(255, 255, 255, 0.05); */
+    color: white;
+    /* border: 0px solid rgba(255, 255, 255, 0.2); */
+  }
+
+  .use-cases-section{
+    /* background-image: url('/images/bg_uc_14.jpg');
+    background-size: cover;          
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll; */
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: top;
+    text-align: center;
+    position: relative;
+    isolation: isolate;   
+    margin-top: 60px!important;
+    background-color: whitesmoke;
+}
+.lead{
+    color: rgb(232, 239, 242);
+    font-size: 2.25rem!important;
+}
+.display-4{
+    color: rgb(255, 253, 253);
+    font-size: 3rem;
+}
+
+
+
+.card-transparent {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
 
 .contact-form-container {
     max-width: 600px;
@@ -87,6 +191,17 @@ h1, h2, h3 {
         padding: 0.5rem 0.75rem;
         font-size: 0.9rem;
     }
+
+    .display-4{
+        color: rgb(255, 253, 253);
+        font-size: 2rem;
+    }
+    .lead{
+        color: rgb(232, 239, 242);
+        font-size: 1.5rem!important;
+    }
+    
+    
 }
 
 @media (max-width: 480px) {
@@ -95,10 +210,21 @@ h1, h2, h3 {
     }
 
     .hero-overlay h1 {
-        font-size: 1.5rem;
+        font-size: 2.5rem;
     }
 
     .hero-overlay p {
         font-size: 0.9rem;
     }
+
+    .display-4{
+        color: rgb(255, 253, 253);
+        font-size: 2.5rem;
+    }
+
+    .lead{
+        color: rgb(232, 239, 242);
+        font-size: 1.5rem!important;
+    }
+    
 }

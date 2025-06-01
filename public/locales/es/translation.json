@@ -1,12 +1,108 @@
 {
   "home": "Inicio",
-  "what": "\u00bfQu\u00e9 hacemos?",
-  "whatContent": "IA aplicada, automatizaci\u00f3n, integraciones, software a medida y consultor\u00eda estrat\u00e9gica.",
-  "how": "\u00bfC\u00f3mo lo hacemos?",
-  "step1": "Diagn\u00f3stico inicial",
-  "step2": "Dise\u00f1o de soluci\u00f3n",
-  "step3": "Implementaci\u00f3n \u00e1gil",
-  "step4": "Mejora continua",
+  "vision": {
+    "title": "Visi\u00f3n",
+    "text": "Ser referentes en la transformaci\u00f3n inteligente de procesos empresariales, brindando soluciones de inteligencia artificial personalizadas que se integran de forma natural en la operaci\u00f3n diaria.\nAcompa\u00f1amos a las empresas en su evoluci\u00f3n digital, ayud\u00e1ndolas a ganar eficiencia, automatizar tareas repetitivas y liberar el tiempo de sus equipos para que puedan enfocarse en lo que realmente importa: la toma de decisiones estrat\u00e9gicas, la innovaci\u00f3n y el crecimiento sostenible.\nCreemos en una tecnolog\u00eda que trabaja en armon\u00eda con las personas, potenciando sus capacidades y fortaleciendo su impacto."
+  },
+  "what": {
+    "title": "\u00bfQu\u00e9 hacemos?",
+    "intro": "Desarrollamos agentes de inteligencia artificial personalizados que automatizan tareas repetitivas, optimizan procesos y se integran directamente en los sistemas existentes de tu empresa.\nNuestro enfoque parte de una comprensi\u00f3n profunda de tus operaciones, lo que nos permite dise\u00f1ar soluciones pr\u00e1cticas, a medida y sin complicaciones.\n\nA diferencia de otras propuestas, no solo implementamos: acompa\u00f1amos la evoluci\u00f3n de tu negocio y adaptamos los agentes conforme cambian tus necesidades o surgen nuevas tecnolog\u00edas.\nNuestro objetivo es claro: ayudarte a ahorrar tiempo, mejorar la eficiencia y escalar de forma inteligente, sin promesas vac\u00edas ni soluciones gen\u00e9ricas.",
+    "solutions": {
+      "ai": {
+        "emoji": "\ud83e\udde0",
+        "title": "IA Aplicada",
+        "description": "Automatizamos decisiones, clasificamos documentos y optimizamos tareas repetitivas con modelos de lenguaje y visi\u00f3n artificial."
+      },
+      "automation": {
+        "emoji": "\u2699\ufe0f",
+        "title": "Automatizaci\u00f3n de procesos",
+        "description": "Identificamos cuellos de botella y dise\u00f1amos flujos de trabajo eficientes con herramientas como n8n, RPA e integraciones personalizadas."
+      },
+      "integrations": {
+        "emoji": "\ud83d\udd0c",
+        "title": "Integraciones empresariales",
+        "description": "Conectamos sistemas internos, ERPs, CRMs y APIs externas para centralizar datos y simplificar operaciones."
+      },
+      "consulting": {
+        "emoji": "\ud83d\udded\ufe0f",
+        "title": "Consultor\u00eda estrat\u00e9gica",
+        "description": "Te ayudamos a definir prioridades tecnol\u00f3gicas y detectar oportunidades con alto retorno."
+      },
+      "customSoftware": {
+        "emoji": "\ud83e\uddf1",
+        "title": "Software a medida",
+        "description": "Aplicaciones web, bots o backends dise\u00f1ados espec\u00edficamente para tu necesidad."
+      }
+    }
+  },
+  "how": {
+    "title": "\u00bfC\u00f3mo lo hacemos?",
+    "intro": "Dividimos el proceso de trabajo en cuatro fases principales:",
+    "steps": {
+      "discovery": {
+        "title": "Descubrimiento y Evaluaci\u00f3n de Necesidades",
+        "description": "Realizamos un relevamiento detallado de los procesos actuales, los objetivos del negocio, los vol\u00famenes operativos y los niveles de complejidad. Buscamos comprender con claridad qu\u00e9 resultados se esperan obtener con la soluci\u00f3n."
+      },
+      "analysis": {
+        "title": "An\u00e1lisis",
+        "description": "Analizamos los datos e informaci\u00f3n recolectada para identificar cuellos de botella, ineficiencias y oportunidades de mejora. Estudiamos casos t\u00edpicos y at\u00edpicos, flujos de procesos y tipos de mensajes, lo que nos permite definir con precisi\u00f3n los escenarios m\u00e1s relevantes."
+      },
+      "design": {
+        "title": "Dise\u00f1o de la Soluci\u00f3n",
+        "description": "Con base en el an\u00e1lisis, dise\u00f1amos una soluci\u00f3n a medida que puede incluir agentes inteligentes, integraciones tecnol\u00f3gicas y las interfaces necesarias. Proponemos diferentes alternativas con sus respectivas ventajas y desventajas para facilitar una toma de decisiones precisa."
+      },
+      "implementation": {
+        "title": "Implementaci\u00f3n",
+        "description": "Desarrollamos los agentes y componentes definidos, priorizando un enfoque evolutivo: comenzamos con un piloto funcional y sumamos funcionalidades de manera iterativa y controlada. De esta forma garantizamos resultados medibles desde el inicio y una m\u00e1xima adaptabilidad a medida que el sistema madura."
+      }
+    }
+  },
+  "useCases": {
+    "title": "Casos de Uso",
+    "intro": "Nuestros agentes inteligentes se adaptan a una amplia variedad de procesos empresariales, automatizando tareas clave, mejorando la experiencia del cliente y liberando recursos operativos. Estos son algunos de los casos de uso m\u00e1s relevantes:",
+    "cases": {
+      "email": {
+        "emoji": "\ud83d\udce8",
+        "title": "Gesti\u00f3n autom\u00e1tica de consultas por email",
+        "description": "Clasificaci\u00f3n y respuesta autom\u00e1tica de correos entrantes. El agente interpreta el mensaje (stock, estado de pedido, errores) y responde en el mismo idioma, integrando datos en tiempo real desde el ERP."
+      },
+      "chatbot": {
+        "emoji": "\ud83d\udcac",
+        "title": "Chatbots con IA por WhatsApp, Telegram y Web",
+        "description": "Atenci\u00f3n automatizada 24/7 a trav\u00e9s de m\u00faltiples canales. Los agentes conversacionales responden preguntas frecuentes, toman pedidos, verifican stock, informan estados y escalan casos complejos a un humano."
+      },
+      "cart": {
+        "emoji": "\ud83d\uded2",
+        "title": "Carrito de compras automatizado por chat",
+        "description": "El cliente puede seleccionar productos, cantidades, m\u00e9todo de entrega y medio de pago directamente desde el chat (WhatsApp o web). El agente valida stock, calcula el total y gestiona la confirmaci\u00f3n del pedido."
+      },
+      "tracking": {
+        "emoji": "\ud83d\udce6",
+        "title": "Seguimiento de pedidos y entregas",
+        "description": "El sistema informa autom\u00e1ticamente el estado de los pedidos, conect\u00e1ndose con plataformas log\u00edsticas o sistemas internos, y notificando al cliente por el canal que prefiera."
+      },
+      "reconciliation": {
+        "emoji": "\ud83d\udcca",
+        "title": "Conciliaci\u00f3n de documentos comerciales",
+        "description": "Verificaci\u00f3n cruzada entre facturas, \u00f3rdenes de compra, certificados y otros documentos. Detecci\u00f3n autom\u00e1tica de errores o inconsistencias con alertas visuales y trazabilidad."
+      },
+      "dataEntry": {
+        "emoji": "\ud83d\udcc1",
+        "title": "Carga autom\u00e1tica de datos en sistemas",
+        "description": "Extracci\u00f3n inteligente de datos desde PDFs, formularios o im\u00e1genes, y carga directa en sistemas ERP/CRM, reduciendo errores humanos y tiempos de procesamiento."
+      },
+      "assistant": {
+        "emoji": "\ud83e\udde0",
+        "title": "Asistentes internos para equipos operativos",
+        "description": "Agentes que responden en tiempo real a preguntas del equipo sobre productos, precios, condiciones comerciales o estados de clientes, integrados a sistemas existentes."
+      },
+      "integration": {
+        "emoji": "\ud83d\udd04",
+        "title": "Integraci\u00f3n entre plataformas desconectadas",
+        "description": "Automatizaci\u00f3n de flujos entre sistemas sin integraci\u00f3n nativa, mediante agentes que act\u00faan como puente para intercambiar, transformar o sincronizar datos."
+      }
+    }
+  },
   "contact": "Contacto",
   "name": "Nombre",
   "email": "Correo",
@@ -14,5 +110,5 @@
   "submit": "Enviar",
   "heroTitle": "Impulsamos tu evoluci\u00f3n digital",
   "heroSubtitle": "Automatizaci\u00f3n inteligente para escalar sin aumentar costos",
-  "heroSubtitle2": "Soluciones con IA, integraciones a medida y acompa\u00f1amiento estrat\u00e9gica en cada paso de tu evoluci\u00f3n digital"
+  "heroSubtitle2": "Soluciones con IA, integraciones a medida y acompa\u00f1amiento estrat\u00e9gico en cada paso de tu evoluci\u00f3n digital"
 }

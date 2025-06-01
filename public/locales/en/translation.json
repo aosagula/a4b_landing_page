@@ -1,17 +1,114 @@
 {
   "home": "Home",
-  "what": "What we do",
-  "whatContent": "Applied AI, automation, integrations, custom software, and strategic consulting.",
-  "how": "How we do it",
-  "step1": "Initial diagnosis",
-  "step2": "Solution design",
-  "step3": "Agile implementation",
-  "step4": "Continuous improvement",
+  "vision": {
+    "title": "Vision",
+    "text": "To be a benchmark in the intelligent transformation of business processes, providing customized artificial intelligence solutions that integrate naturally into daily operations.\nWe support companies in their digital evolution, helping them improve efficiency, automate repetitive tasks, and free up their teams’ time so they can focus on what truly matters: strategic decision-making, innovation, and sustainable growth.\nWe believe in technology that works in harmony with people, enhancing their capabilities and strengthening their impact."
+  },
+  "what": {
+    "title": "What we do",
+    "intro": "We develop custom artificial intelligence agents that automate repetitive tasks, optimize processes, and integrate directly with your company’s existing systems.\nOur approach starts with a deep understanding of your operations, allowing us to design practical, tailored, and hassle-free solutions.\n\nUnlike other proposals, we don’t just implement: we support your business evolution and adapt the agents as your needs change or new technologies emerge.\nOur goal is clear: help you save time, improve efficiency, and scale intelligently—without empty promises or generic solutions.",
+    "solutions": {
+      "ai": {
+        "emoji": "\ud83e\udde0",
+        "title": "Applied AI",
+        "description": "We automate decisions, classify documents, and optimize repetitive tasks using language and computer vision models."
+      },
+      "automation": {
+        "emoji": "\u2699\ufe0f",
+        "title": "Process automation",
+        "description": "We identify bottlenecks and design efficient workflows using tools like n8n, RPA, and custom integrations."
+      },
+      "integrations": {
+        "emoji": "\ud83d\udd0c",
+        "title": "Business integrations",
+        "description": "We connect internal systems, ERPs, CRMs, and external APIs to centralize data and simplify operations."
+      },
+      "consulting": {
+        "emoji": "\ud83d\udded\ufe0f",
+        "title": "Strategic consulting",
+        "description": "We help define tech priorities and identify opportunities with high return on investment."
+      },
+      "customSoftware": {
+        "emoji": "\ud83e\uddf1",
+        "title": "Custom software",
+        "description": "Web apps, bots, or backends designed specifically for your needs."
+      }
+    }
+  },
+  "how": {
+    "title": "How we work",
+    "intro": "We divide the workflow into four main phases:",
+    "steps": {
+      "discovery": {
+        "title": "Discovery and Needs Assessment",
+        "description": "We conduct a detailed survey of your current processes, business goals, operational volumes, and complexity levels. We seek a clear understanding of the results expected from the solution."
+      },
+      "analysis": {
+        "title": "Analysis",
+        "description": "We analyze collected data to identify bottlenecks, inefficiencies, and improvement opportunities. We review typical and atypical cases, process flows, and message types to accurately define the most relevant scenarios."
+      },
+      "design": {
+        "title": "Solution Design",
+        "description": "Based on the analysis, we design a tailored solution that may include smart agents, technological integrations, and the necessary interfaces. We propose several alternatives with pros and cons to support precise decision-making."
+      },
+      "implementation": {
+        "title": "Implementation",
+        "description": "We develop the defined agents and components, prioritizing an evolutionary approach: we start with a functional pilot and iteratively add features. This ensures measurable results from the beginning and maximum adaptability as the system matures."
+      }
+    }
+  },
+  "useCases": {
+    "title": "Use Cases",
+    "intro": "Our intelligent agents adapt to a wide variety of business processes, automating key tasks, enhancing customer experience, and freeing up operational resources. These are some of the most relevant use cases:",
+    "cases": {
+      "email": {
+        "emoji": "\ud83d\udce8",
+        "title": "Automatic email query handling",
+        "description": "Classification and automatic response of incoming emails. The agent interprets the message (stock, order status, errors) and replies in the same language, integrating real-time ERP data."
+      },
+      "chatbot": {
+        "emoji": "\ud83d\udcac",
+        "title": "AI chatbots via WhatsApp, Telegram, and Web",
+        "description": "24/7 automated support across multiple channels. Conversational agents answer FAQs, take orders, check stock, report statuses, and escalate complex cases to a human."
+      },
+      "cart": {
+        "emoji": "\ud83d\uded2",
+        "title": "Automated shopping cart via chat",
+        "description": "Customers can choose products, quantities, delivery method, and payment channel directly via chat (WhatsApp or web). The agent validates stock, calculates totals, and confirms orders."
+      },
+      "tracking": {
+        "emoji": "\ud83d\udce6",
+        "title": "Order and delivery tracking",
+        "description": "The system automatically reports order statuses by connecting with logistics platforms or internal systems, and notifies customers through their preferred channel."
+      },
+      "reconciliation": {
+        "emoji": "\ud83d\udcca",
+        "title": "Commercial document reconciliation",
+        "description": "Cross-checking between invoices, purchase orders, certificates, and other documents. Automatically detects errors or inconsistencies with visual alerts and traceability."
+      },
+      "dataEntry": {
+        "emoji": "\ud83d\udcc1",
+        "title": "Automated data entry into systems",
+        "description": "Smart data extraction from PDFs, forms, or images, and direct entry into ERP/CRM systems, reducing human errors and processing time."
+      },
+      "assistant": {
+        "emoji": "\ud83e\udde0",
+        "title": "Internal assistants for operations teams",
+        "description": "Agents that respond in real time to internal questions about products, prices, commercial terms, or client status—fully integrated with existing systems."
+      },
+      "integration": {
+        "emoji": "\ud83d\udd04",
+        "title": "Integration between disconnected platforms",
+        "description": "Automation of flows between systems without native integration, using agents as bridges to exchange, transform, or synchronize data."
+      }
+    }
+  },
   "contact": "Contact",
   "name": "Name",
   "email": "Email",
   "message": "Message",
   "submit": "Send",
-  "heroTitle": "We boost your digital evolution",
-  "heroSubtitle": "Smart automation to scale without increasing costs"
+  "heroTitle": "We drive your digital evolution",
+  "heroSubtitle": "Intelligent automation to scale without increasing costs",
+  "heroSubtitle2": "AI-powered solutions, custom integrations, and strategic support at every step of your digital journey"
 }
