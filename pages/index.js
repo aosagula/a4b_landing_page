@@ -20,11 +20,35 @@ export default function Home() {
     setMounted(true)
   }, [])
   useEffect(() => {
-		createChat({
-			webhookUrl: 'https://n8n-production-a71c.up.railway.app/webhook/fccd2540-7c31-4507-8790-d06cd2f4a794/chat'
-		});
-	}, []);
-  
+    createChat({
+      webhookUrl: 'https://n8n-production-a71c.up.railway.app/webhook/fccd2540-7c31-4507-8790-d06cd2f4a794/chat',
+      inputFieldName: 'chatInput',
+      initialMessages: [
+        t('chat.sayhi'),
+      ],
+      showWelcomeScreen: false,
+      defaultLanguage: 'es',
+
+
+      i18n: {
+        es: {
+          title: 'A4B Chat',
+          subtitle: "",
+          footer: '',
+          getStarted: 'New Conversation',
+          inputPlaceholder: t('chat.inputPlaceholder'),
+        },
+        en: {
+          title: 'A4B Chat',
+          subtitle: "",
+          footer: '',
+          getStarted: 'New Conversation',
+          inputPlaceholder: t('chat.inputPlaceholder'),
+        },
+      },
+    });
+  }, []);
+
   const heroRef = useRef(null)
   const visionRef = useRef(null)
   const whatRef = useRef(null)
@@ -43,9 +67,9 @@ export default function Home() {
   }
   if (!mounted) return null
   return (
-   
+
     <div suppressHydrationWarning={true}>
-      
+
       {/* Navbar */}
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div className="container-fluid">
@@ -228,7 +252,7 @@ export default function Home() {
 
             {/* Columna 2: Información de empresa */}
             <div className="col-md-6 text-md-start text-center">
-              
+
               <p>
                 📧 <a href="mailto:contacto@agentic4biz.com" className="text-white">contacto@agentic4biz.com</a><br />
                 📞 +54 9 11 1234-5678

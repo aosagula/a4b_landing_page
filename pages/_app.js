@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 
 import '../i18n' // 👈 
 import { appWithTranslation } from 'next-i18next'
-import '@n8n/chat/style.css';
+// import '@n8n/chat/style.css';
 import { createChat } from '@n8n/chat';
 
 function MyApp({ Component, pageProps }) {

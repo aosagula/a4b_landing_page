@@ -110,5 +110,10 @@
   "submit": "Enviar",
   "heroTitle": "Impulsamos tu evoluci\u00f3n digital",
   "heroSubtitle": "Automatizaci\u00f3n inteligente para escalar sin aumentar costos",
-  "heroSubtitle2": "Soluciones con IA, integraciones a medida y acompa\u00f1amiento estrat\u00e9gico en cada paso de tu evoluci\u00f3n digital"
+  "heroSubtitle2": "Soluciones con IA, integraciones a medida y acompa\u00f1amiento estrat\u00e9gico en cada paso de tu evoluci\u00f3n digital",
+
+  "chat":{
+    "sayhi": "Hola, ¿Cómo puedo ayudarte?",
+    "inputPlaceholder": "Dime que necesitas...."
+  }
 }

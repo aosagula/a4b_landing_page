@@ -111,4 +111,9 @@
   "heroTitle": "We drive your digital evolution",
   "heroSubtitle": "Intelligent automation to scale without increasing costs",
   "heroSubtitle2": "AI-powered solutions, custom integrations, and strategic support at every step of your digital journey"
+,
+"chat":{
+    "sayhi": "Hi, How I can help you?",
+    "inputPlaceholder": "Write your message here"
+  }
 }
