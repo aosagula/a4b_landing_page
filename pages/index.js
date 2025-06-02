@@ -4,7 +4,8 @@ import { useTranslation } from 'react-i18next'
 import { useRouter } from 'next/router'
 import i18next from 'i18next'
 import 'bootstrap/dist/css/bootstrap.min.css'
-
+import '@n8n/chat/style.css';
+import { createChat } from '@n8n/chat';
 
 
 
@@ -18,7 +19,11 @@ export default function Home() {
   useEffect(() => {
     setMounted(true)
   }, [])
-
+  useEffect(() => {
+		createChat({
+			webhookUrl: 'https://n8n-production-a71c.up.railway.app/webhook/fccd2540-7c31-4507-8790-d06cd2f4a794/chat'
+		});
+	}, []);
   
   const heroRef = useRef(null)
   const visionRef = useRef(null)
