@@ -21,8 +21,8 @@ export default function Home() {
   }, [])
   useEffect(() => {
     createChat({
-      webhookUrl: 'https://n8n-production-a71c.up.railway.app/webhook/fccd2540-7c31-4507-8790-d06cd2f4a794/chat',
-      launcherImageUrl: '/images/chat.svg',
+      webhookUrl: 'https://n8n-production-a4bdev.up.railway.app/webhook/8ab12c4f-7c84-465b-b3a7-2a6ea38313ba/chat',
+      
       inputFieldName: 'chatInput',
       initialMessages: [
         t('chat.sayhi'),
