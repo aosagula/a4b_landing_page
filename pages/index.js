@@ -6,7 +6,7 @@ import i18next from 'i18next'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '@n8n/chat/style.css';
 import { createChat } from '@n8n/chat';
-
+import Head from 'next/head'
 
 
 
@@ -70,7 +70,11 @@ export default function Home() {
   return (
 
     <div suppressHydrationWarning={true}>
-
+      <Head>  
+          <link rel="icon" href="/favicon.ico" />
+          <title>Agentic4Biz - {t('title')}</title>
+          <meta name="description" content={t('content')} />
+      </Head>
       {/* Navbar */}
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div className="container-fluid">

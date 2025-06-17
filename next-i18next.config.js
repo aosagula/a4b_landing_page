@@ -2,7 +2,7 @@ module.exports = {
     i18n: {
       defaultLocale: 'es',
       locales: ['es', 'en'],
-      localeDetection: true
+      localeDetection: false
     },
     detection: {
       order: ['cookie', 'header', 'querystring'],
