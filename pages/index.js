@@ -22,7 +22,7 @@ export default function Home() {
   useEffect(() => {
     createChat({
       webhookUrl: 'https://n8n-production-a4bdev.up.railway.app/webhook/8ab12c4f-7c84-465b-b3a7-2a6ea38313ba/chat',
-      
+
       inputFieldName: 'chatInput',
       initialMessages: [
         t('chat.sayhi'),
@@ -70,16 +70,43 @@ export default function Home() {
   return (
 
     <div suppressHydrationWarning={true}>
-      <Head>  
-          <link rel="icon" href="/favicon.ico" />
-          <title>Agentic4Biz - {t('title')}</title>
-          <meta name="description" content={t('content')} />
-          <meta property="og:url" content="https://www.agentic4biz.com/" />
-          <meta property="og:type" content="website" />
-          <meta property="og:image" content="https://www.agentic4biz.com/og-image.jpg" />
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="robots" content="index, follow" />
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+        <title>{`Agentic4Biz - ${t('title')}`}</title>
+        <meta name="description" content={t('content')} />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://www.agentic4biz.com/" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content={`Agentic4Biz - ${t('title')}`} />
+        <meta property="og:description" content={t('content')} />
+        <meta property="og:url" content="https://www.agentic4biz.com/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.agentic4biz.com/images/logo3.png" />
+
+        {/* Twitter Cards */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`Agentic4Biz - ${t('title')}`} />
+        <meta name="twitter:description" content={t('content')} />
+        <meta name="twitter:image" content="https://www.agentic4biz.com/images/logo3.png" />
       </Head>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Agentic4Biz",
+            url: "https://www.agentic4biz.com",
+            logo: "https://www.agentic4biz.com/images/logo3.png",
+            description: t('content'), // puede ser texto traducido
+            address: {
+              "@type": "PostalAddress",
+              addressCountry: "AR",
+            },
+          }),
+        }}
+      />
       {/* Navbar */}
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div className="container-fluid">
@@ -236,7 +263,7 @@ export default function Home() {
       </section> */}
 
 
-      
+
       <footer className="footer-section bg-dark text-white py-5">
         <div className="container">
           <div className="row">
