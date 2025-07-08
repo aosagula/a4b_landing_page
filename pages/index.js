@@ -79,7 +79,7 @@ export default function Home() {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div className="container-fluid">
           <a className="navbar-brand d-flex align-items-center" href="#">
-            <img src="/images/logo2.png" alt="Logo" width="32" height="32" className="me-2" />
+            <img src="/images/logo3.png" alt="Logo" width="32" height="32" className="me-2" />
             Agentic4biz
           </a>
           <button className="navbar-toggler"
