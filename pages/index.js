@@ -74,6 +74,10 @@ export default function Home() {
           <link rel="icon" href="/favicon.ico" />
           <title>Agentic4Biz - {t('title')}</title>
           <meta name="description" content={t('content')} />
+          <meta property="og:url" content="https://www.agentic4biz.com/" />
+          <meta property="og:type" content="website" />
+          <meta property="og:image" content="https://www.agentic4biz.com/og-image.jpg" />
+          <meta name="twitter:card" content="summary_large_image" />
       </Head>
       {/* Navbar */}
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -134,7 +138,7 @@ export default function Home() {
       {/* Hero Section */}
       <section
         ref={heroRef}
-
+        id="hero-section"
         className="hero-section min-vh-100"
       >
         <div className="hero-overlay">
@@ -144,7 +148,7 @@ export default function Home() {
         </div>
       </section>
       {/* Vision */}
-      <section ref={visionRef} className="vision-section py-5">
+      <section ref={visionRef} className="vision-section py-5" id="vision-section">
         <div className="container">
           <h2 className="mb-4 text-white">{t('vision.title')}</h2>
           <p className="mb-5 text-overlay-box vision-text">{t('vision.text')}</p>
@@ -152,7 +156,7 @@ export default function Home() {
       </section>
 
       {/* Qué hacemos */}
-      <section ref={whatRef} className="what-section py-5">
+      <section ref={whatRef} className="what-section py-5" id="what-section">
         <div className="container">
           <h2 className="mb-4">{t('what.title')}</h2>
           <p className="mb-5 text-overlay-box">{t('what.intro')}</p>
@@ -172,7 +176,7 @@ export default function Home() {
       </section>
 
       {/* Cómo lo hacemos */}
-      <section ref={howRef} className="min-vh-100 py-5 how-section">
+      <section ref={howRef} className="min-vh-100 py-5 how-section" id="how-section">
         <div className="container ">
           <h2 className="mb-4 text-center text-white">{t('how.title')}</h2>
           <ul className="how-list-group list-group-numbered bg-transparent ">
@@ -190,7 +194,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section ref={useCasesRef} className='use-cases-section py-5'>
+      <section ref={useCasesRef} className='use-cases-section py-5' id="use-cases-section">
         <div className="container">
           <h2>{t('useCases.title')}</h2>
           <p>{t('useCases.intro')}</p>
@@ -231,7 +235,7 @@ export default function Home() {
       </section> */}
 
 
-
+      
       <footer className="footer-section bg-dark text-white py-5">
         <div className="container">
           <div className="row">
