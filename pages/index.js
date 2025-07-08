@@ -78,6 +78,7 @@ export default function Home() {
           <meta property="og:type" content="website" />
           <meta property="og:image" content="https://www.agentic4biz.com/og-image.jpg" />
           <meta name="twitter:card" content="summary_large_image" />
+          <meta name="robots" content="index, follow" />
       </Head>
       {/* Navbar */}
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
