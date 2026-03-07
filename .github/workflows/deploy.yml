@@ -23,8 +23,8 @@ jobs:
             # Obtener los últimos cambios de GitHub
             git pull origin main
             
-            # Reconstruir la imagen de Docker y levantar el contenedor usando docker-compose
-            docker-compose up -d --build
+            # Reconstruir la imagen de Docker y levantar el contenedor usando docker compose
+            docker compose up -d --build
             
             # (Opcional) Limpiar imágenes viejas que ya no se usan para liberar espacio
             docker image prune -af
