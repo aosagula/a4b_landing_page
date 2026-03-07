@@ -68,13 +68,13 @@
   
 
 body {
-    font-family: 'Monserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 
     background-color: black;
 }
 
-nav-dark{
-    background-color: #020B17
+.nav-dark {
+    background-color: #020B17;
 }
 
 h1, h2, h3 {

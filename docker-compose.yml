@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  a4b-landing:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: a4b-landing-page:latest
+    container_name: a4b-webapp
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    networks:
+      - vps_shared_network
+
+networks:
+  vps_shared_network:
+    external: true

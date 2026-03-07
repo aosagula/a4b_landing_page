@@ -1,0 +1,29 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - main # Se ejecuta cuando hay un push a la rama main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to VPS via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+             # Asegúrate de cambiar esto a la ruta real de tu proyecto en el VPS
+            cd /root/a4b_landing_page || exit
+            
+            # Obtener los últimos cambios de GitHub
+            git pull origin main
+            
+            # Reconstruir la imagen de Docker y levantar el contenedor usando docker-compose
+            docker-compose up -d --build
+            
+            # (Opcional) Limpiar imágenes viejas que ya no se usan para liberar espacio
+            docker image prune -af
