@@ -16,8 +16,9 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-             # Asegúrate de cambiar esto a la ruta real de tu proyecto en el VPS
+            # Asegúrate de cambiar esto a la ruta real de tu proyecto en el VPS
             cd /root/a4b_landing_page || exit
+
             
             # Obtener los últimos cambios de GitHub
             git pull origin main
