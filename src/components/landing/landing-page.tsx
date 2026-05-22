@@ -179,7 +179,111 @@ export function LandingPage() {
           </div>
         </div>
       </footer>
+
+      <ChatbotWidget language={language} />
     </>
+  );
+}
+
+type ChatMessage = {
+  role: "user" | "assistant";
+  text: string;
+};
+
+function ChatbotWidget({ language }: { language: Language }) {
+  const [open, setOpen] = useState(false);
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+
+  const uiText =
+    language === "es"
+      ? {
+          title: "Asistente A4B",
+          subtitle: "Consultas rápidas sobre automatización",
+          placeholder: "Escribe tu mensaje...",
+          send: "Enviar",
+          empty: "Inicia la conversación y te respondemos al instante.",
+          error: "No pude conectar con el asistente. Intenta de nuevo."
+        }
+      : {
+          title: "A4B Assistant",
+          subtitle: "Quick automation questions",
+          placeholder: "Type your message...",
+          send: "Send",
+          empty: "Start the conversation and get an instant reply.",
+          error: "Could not reach the assistant. Please try again."
+        };
+
+  const sendMessage = async () => {
+    const trimmed = input.trim();
+    if (!trimmed || loading) {
+      return;
+    }
+
+    setInput("");
+    setLoading(true);
+    setMessages((prev) => [...prev, { role: "user", text: trimmed }]);
+
+    try {
+      const response = await fetch("/api/chatbot", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: trimmed, language })
+      });
+
+      const data = (await response.json()) as { reply?: string; error?: string };
+      const reply = response.ok ? data.reply : data.error;
+
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", text: reply || uiText.error }
+      ]);
+    } catch {
+      setMessages((prev) => [...prev, { role: "assistant", text: uiText.error }]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className={`chatbot-widget ${open ? "open" : ""}`}>
+      <button className="chatbot-toggle" type="button" onClick={() => setOpen((prev) => !prev)}>
+        {open ? "×" : "💬"}
+      </button>
+      {open && (
+        <section className="chatbot-panel" aria-label={uiText.title}>
+          <header>
+            <h3>{uiText.title}</h3>
+            <p>{uiText.subtitle}</p>
+          </header>
+          <div className="chatbot-messages">
+            {messages.length === 0 ? <p className="chatbot-empty">{uiText.empty}</p> : null}
+            {messages.map((message, index) => (
+              <div key={`${message.role}-${index}`} className={`chatbot-bubble ${message.role}`}>
+                {message.text}
+              </div>
+            ))}
+          </div>
+          <div className="chatbot-input-row">
+            <input
+              type="text"
+              value={input}
+              placeholder={uiText.placeholder}
+              onChange={(event) => setInput(event.target.value)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                  void sendMessage();
+                }
+              }}
+            />
+            <button type="button" onClick={() => void sendMessage()} disabled={loading}>
+              {loading ? "..." : uiText.send}
+            </button>
+          </div>
+        </section>
+      )}
+    </div>
   );
 }
 
