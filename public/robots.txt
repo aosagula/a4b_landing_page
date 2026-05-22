@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://www.agentic4biz.com
-
-# Sitemaps
-Sitemap: https://www.agentic4biz.com/sitemap.xml

@@ -1,0 +1,22 @@
+{
+  "name": "agentic4biz",
+  "short_name": "A4B",
+  "description": "Agentes de IA para empresas que prefieren operar, no esperar.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#eaf0f5",
+  "theme_color": "#eaf0f5",
+  "icons": [
+    {
+      "src": "/icono.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icono.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,39 +1,28 @@
-# Paso 1: Usar una imagen base ligera de Node.js
-FROM node:18-alpine AS builder
-
-# Establecer el directorio de trabajo dentro del contenedor
+FROM node:24-alpine AS deps
 WORKDIR /app
-
-# Archivos de caché para acelerar la instalación de dependencias
-COPY package.json package-lock.json* ./
-
-# Instalar todas las dependencias
+COPY package*.json  ./
 RUN npm install
 
-# Copiar el resto del código fuente del proyecto
+FROM node:24-alpine AS builder
+WORKDIR /app
+ENV NEXT_TELEMETRY_DISABLED=1
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-
-# Construir la aplicación Next.js para producción
 RUN npm run build
 
-# Paso 2: Configurar la imagen final de producción (más ligera)
-FROM node:18-alpine AS runner
-
+FROM node:24-alpine AS runner
 WORKDIR /app
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV PORT=3000
 
-# Establecer entorno a producción
-ENV NODE_ENV production
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
 
-# Copiar sólo los archivos necesarios desde la imagen de construcción (builder)
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/next.config.js ./next.config.js
-COPY --from=builder /app/next-i18next.config.js ./next-i18next.config.js
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-# Exponer el puerto por el que corre Next.js (por defecto 3000)
+USER nextjs
 EXPOSE 3000
-
-# Comando para iniciar la aplicación
-CMD ["npm", "start"]
+CMD ["node", "server.js"]
