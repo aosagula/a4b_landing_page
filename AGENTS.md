@@ -28,7 +28,7 @@ Build and run the production Docker image:
 
 ```powershell
 docker build -t agentic4biz-landing .
-docker run --rm -p 3000:3000 agentic4biz-landing
+docker run --rm -p 3001:3001 agentic4biz-landing
 ```
 
 Run the same production image through Docker Compose:
