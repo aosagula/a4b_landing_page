@@ -1,4 +1,5 @@
 export const WHATSAPP_URL = "https://wa.me/541165322243";
+export const INSTAGRAM_URL = "https://www.instagram.com/agentic4biz/";
 
 export type Language = "es" | "en";
 

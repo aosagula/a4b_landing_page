@@ -932,6 +932,16 @@ footer.foot {
   font-weight: 700;
 }
 
+.footer-links {
+  display: grid;
+  gap: 6px;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  color: var(--accent-2);
+}
+
 .menu-btn {
   display: none;
   width: 44px;

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import {
+  INSTAGRAM_URL,
   WHATSAPP_URL,
   contentByLanguage,
   languages,
@@ -159,9 +160,14 @@ export function LandingPage() {
           </div>
           <div>
             <div className="footer-h">{content.footer.contact}</div>
-            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">
-              WhatsApp · +54 11 6532 2243
-            </a>
+            <div className="footer-links">
+              <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">
+                WhatsApp · +54 11 6532 2243
+              </a>
+              <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
+                Instagram · @agentic4biz
+              </a>
+            </div>
           </div>
           <div>
             <div className="footer-h">{content.footer.legal}</div>
