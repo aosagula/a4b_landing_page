@@ -1588,17 +1588,44 @@ footer.foot {
 .chatbot-toggle {
   width: 56px;
   height: 56px;
-  border: 1px solid var(--ink);
-  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--ink);
   background: var(--ink);
   color: var(--paper);
   cursor: pointer;
-  font-size: 24px;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.chatbot-icon {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+
+.chatbot-icon-fill {
+  fill: currentColor;
+  stroke: none;
 }
 
 .chatbot-toggle:hover,
+.chatbot-toggle:focus-visible,
 .chatbot-input-row button:hover {
   background: var(--accent);
+}
+
+.chatbot-toggle:hover,
+.chatbot-toggle:focus-visible {
+  color: var(--paper);
+  outline: 0;
 }
 
 .chatbot-panel {

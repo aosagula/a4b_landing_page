@@ -248,8 +248,27 @@ function ChatbotWidget({ language }: { language: Language }) {
 
   return (
     <div className={`chatbot-widget ${open ? "open" : ""}`}>
-      <button className="chatbot-toggle" type="button" onClick={() => setOpen((prev) => !prev)}>
-        {open ? "×" : "💬"}
+      <button
+        className="chatbot-toggle"
+        type="button"
+        aria-label={open ? "Cerrar asistente A4B" : "Abrir asistente A4B"}
+        aria-expanded={open}
+        onClick={() => setOpen((prev) => !prev)}
+      >
+        {open ? (
+          <svg className="chatbot-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6 L18 18" />
+            <path d="M18 6 L6 18" />
+          </svg>
+        ) : (
+          <svg className="chatbot-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2 V5" />
+            <rect x="4" y="5" width="16" height="14" />
+            <rect className="chatbot-icon-fill" x="8" y="10" width="2" height="2" />
+            <rect className="chatbot-icon-fill" x="14" y="10" width="2" height="2" />
+            <path d="M9 15 H15" />
+          </svg>
+        )}
       </button>
       {open && (
         <section className="chatbot-panel" aria-label={uiText.title}>
