@@ -37,7 +37,7 @@ export const contentByLanguage = {
       title: ["De los procesos repetitivos", "de tus equipos", "ya pueden hacerlos agentes."],
       lede:
         "Construimos fuerzas de trabajo autónomas para empresas medianas y corporativos. Cero plantillas. Solo lo que tu operación necesita.",
-      primaryCta: "Solicitar diagnóstico",
+      primaryCta: "Hablemos",
       secondaryCta: "Ver clientes"
     },
     marqueeAria: "Clientes",
@@ -214,7 +214,7 @@ export const contentByLanguage = {
       title: ["Of your teams'", "repetitive processes", "agents can already do them."],
       lede:
         "We build autonomous workforces for mid-market companies and enterprises. No templates. Only what your operation needs.",
-      primaryCta: "Request diagnosis",
+      primaryCta: "Let's talk",
       secondaryCta: "View clients"
     },
     marqueeAria: "Clients",
