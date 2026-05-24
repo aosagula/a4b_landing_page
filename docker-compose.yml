@@ -6,6 +6,8 @@ services:
     image: agentic4biz-landing:local
     container_name: a4b-webapp
     restart: unless-stopped
+    env_file:
+      - .env
     environment:
       NODE_ENV: production
       NEXT_TELEMETRY_DISABLED: "1"

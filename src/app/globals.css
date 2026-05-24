@@ -1271,14 +1271,14 @@ footer.foot {
   }
 
   .hero-number {
-    font-size: 200px;
+    font-size: 150px;
     line-height: 0.82;
   }
 
   .hero-number .pct {
-    margin-top: 6px;
+    margin-top: 4px;
     margin-left: 4px;
-    font-size: 88px;
+    font-size: 66px;
   }
 
   .hero-text {
@@ -1550,11 +1550,11 @@ footer.foot {
 
 @media (max-width: 380px) {
   .hero-number {
-    font-size: 156px;
+    font-size: 120px;
   }
 
   .hero-number .pct {
-    font-size: 68px;
+    font-size: 52px;
   }
 
   h1 {
@@ -1711,5 +1711,51 @@ footer.foot {
   .chatbot-widget {
     right: 12px;
     bottom: 12px;
+  }
+}
+
+.whatsapp-fab {
+  position: fixed;
+  right: 24px;
+  bottom: 96px;
+  z-index: 30;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.45);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+}
+
+.whatsapp-fab svg {
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+}
+
+.whatsapp-fab:hover,
+.whatsapp-fab:focus-visible {
+  background: #1ebe5d;
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.55);
+  outline: 0;
+}
+
+@media (max-width: 640px) {
+  .whatsapp-fab {
+    right: 12px;
+    bottom: 84px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .whatsapp-fab svg {
+    width: 26px;
+    height: 26px;
   }
 }
