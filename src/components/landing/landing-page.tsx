@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   INSTAGRAM_URL,
   WHATSAPP_URL,
@@ -208,6 +208,11 @@ function ChatbotWidget({ language }: { language: Language }) {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
   const [sessionId] = useState(() =>
     typeof crypto !== "undefined" && "randomUUID" in crypto
       ? crypto.randomUUID()
@@ -301,6 +306,7 @@ function ChatbotWidget({ language }: { language: Language }) {
                 {message.text}
               </div>
             ))}
+            <div ref={messagesEndRef} />
           </div>
           <div className="chatbot-input-row">
             <input
