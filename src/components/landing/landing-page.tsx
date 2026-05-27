@@ -171,7 +171,9 @@ export function LandingPage() {
           </div>
           <div>
             <div className="footer-h">{content.footer.legal}</div>
-            <div>{content.footer.legalText}</div>
+            <div className="footer-links">
+              <a href="/politica-de-privacidad">{content.footer.privacy}</a>
+            </div>
           </div>
           <div>
             <div className="footer-h">2026</div>

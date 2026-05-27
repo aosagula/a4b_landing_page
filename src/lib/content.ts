@@ -193,7 +193,7 @@ export const contentByLanguage = {
       description: "Agentes de IA para empresas que prefieren operar, no esperar.",
       contact: "Contacto",
       legal: "Legal",
-      legalText: "Privacidad · Términos · Seguridad",
+      privacy: "Política de Privacidad",
       version: "Versión 04.2"
     }
   },
@@ -370,7 +370,7 @@ export const contentByLanguage = {
       description: "AI agents for companies that prefer operating over waiting.",
       contact: "Contact",
       legal: "Legal",
-      legalText: "Privacy · Terms · Security",
+      privacy: "Privacy Policy",
       version: "Version 04.2"
     }
   }
