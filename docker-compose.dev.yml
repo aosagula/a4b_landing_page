@@ -1,0 +1,33 @@
+services:
+  landing-dev:
+    image: node:24-alpine
+    container_name: a4b-webapp-dev
+    working_dir: /app
+    restart: unless-stopped
+    environment:
+      NODE_ENV: development
+      NEXT_TELEMETRY_DISABLED: "1"
+      WATCHPACK_POLLING: "true"
+      CHOKIDAR_USEPOLLING: "true"
+    command: >
+      sh -c "corepack enable &&
+      corepack prepare pnpm@10.33.2 --activate &&
+      pnpm install --frozen-lockfile &&
+      pnpm dev --hostname 0.0.0.0 --port 3000"
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - a4b_dev_node_modules:/app/node_modules
+      - a4b_dev_next:/app/.next
+    networks:
+      - a4b_dev_network
+
+networks:
+  a4b_dev_network:
+    name: a4b_dev_network
+    driver: bridge
+
+volumes:
+  a4b_dev_node_modules:
+  a4b_dev_next:

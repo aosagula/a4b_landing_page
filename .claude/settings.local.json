@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm --version)",
+      "Bash(pnpm install *)",
+      "Bash(Get-Content \"C:\\\\prg\\\\propios\\\\a4b_landing_page\\\\src\\\\app\\\\globals.css\")",
+      "Bash(Select-Object -Last 50)",
+      "Bash(git *)",
+      "Bash(pnpm tsc *)"
+    ]
+  }
+}
