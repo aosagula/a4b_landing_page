@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import {
+  DEMOS_URL,
   INSTAGRAM_URL,
   WHATSAPP_URL,
   contentByLanguage,
@@ -115,6 +116,10 @@ export function LandingPage() {
                 <a href="#clientes" className="cta2">
                   {content.hero.secondaryCta}
                   <span aria-hidden="true"> ↘</span>
+                </a>
+                <a href={DEMOS_URL} className="cta-demo" target="_blank" rel="noreferrer">
+                  {content.hero.demoCta}
+                  <span aria-hidden="true"> -&gt;</span>
                 </a>
               </div>
             </div>

@@ -254,12 +254,16 @@ h2 {
 
 .hero-btns {
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
   align-items: center;
+  position: relative;
+  z-index: 31;
 }
 
 .cta1,
-.cta2 {
+.cta2,
+.cta-demo {
   padding: 18px 28px;
   font-size: 15px;
   font-weight: 600;
@@ -278,6 +282,21 @@ h2 {
 .cta2:focus-visible {
   color: var(--accent);
   border-bottom-color: var(--accent);
+}
+
+.cta-demo {
+  background: var(--accent);
+  color: var(--paper);
+  box-shadow: 0 0 0 0 rgba(29, 78, 216, 0.52);
+  animation: demo-pulse 1.35s ease-in-out infinite;
+}
+
+.cta-demo:hover,
+.cta-demo:focus-visible {
+  background: var(--accent-2);
+  color: var(--ink);
+  animation-play-state: paused;
+  outline: 0;
 }
 
 .hero-foot {
@@ -356,7 +375,8 @@ h2 {
   }
 
   .cta1,
-  .cta2 {
+  .cta2,
+  .cta-demo {
     padding-top: 15px;
     padding-bottom: 15px;
   }
@@ -377,6 +397,19 @@ h2 {
 
   to {
     transform: translateX(-50%);
+  }
+}
+
+@keyframes demo-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(29, 78, 216, 0.52);
+    transform: translateY(0);
+  }
+
+  50% {
+    box-shadow: 0 0 0 10px rgba(29, 78, 216, 0);
+    transform: translateY(-1px);
   }
 }
 
@@ -1262,6 +1295,9 @@ footer.foot {
 
   .hero {
     padding: 32px 20px 0;
+    position: relative;
+    z-index: 31;
+    background: var(--paper);
   }
 
   .hero-grid {
@@ -1307,12 +1343,14 @@ footer.foot {
 
   .hero-btns {
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
     gap: 12px;
   }
 
   .cta1,
-  .cta2 {
+  .cta2,
+  .cta-demo {
+    width: calc(100% - 68px);
     padding: 16px 20px;
     font-size: 14px;
     text-align: center;

@@ -1,5 +1,6 @@
 export const WHATSAPP_URL = "https://wa.me/541165322243";
 export const INSTAGRAM_URL = "https://www.instagram.com/agentic4biz/";
+export const DEMOS_URL = "https://hozdemo.agentic4biz.com";
 
 export type Language = "es" | "en";
 
@@ -38,7 +39,8 @@ export const contentByLanguage = {
       lede:
         "Construimos fuerzas de trabajo autónomas para empresas medianas y corporativos. Cero plantillas. Solo lo que tu operación necesita.",
       primaryCta: "Hablemos",
-      secondaryCta: "Ver clientes"
+      secondaryCta: "Ver clientes",
+      demoCta: "Demos"
     },
     marqueeAria: "Clientes",
     marqueeItems: sharedMarqueeItems,
@@ -215,7 +217,8 @@ export const contentByLanguage = {
       lede:
         "We build autonomous workforces for mid-market companies and enterprises. No templates. Only what your operation needs.",
       primaryCta: "Let's talk",
-      secondaryCta: "View clients"
+      secondaryCta: "View clients",
+      demoCta: "Demos"
     },
     marqueeAria: "Clients",
     marqueeItems: sharedMarqueeItems,
