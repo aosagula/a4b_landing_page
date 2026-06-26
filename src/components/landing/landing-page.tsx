@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
+import Image from "next/image";
 import {
   DEMOS_URL,
   INSTAGRAM_URL,
@@ -55,7 +56,7 @@ export function LandingPage() {
     <>
       <header className="nav">
         <a className="logo" href="#inicio" aria-label="agentic4biz inicio">
-          <img src="/logotipo.png" alt="Agentic4Biz" />
+          <Image src="/logotipo.png" alt="Agentic4Biz" width={150} height={40} />
         </a>
         <nav className={`nav-links ${menuOpen ? "open" : ""}`} id="nav-links" aria-label={content.navAria}>
           <div className="nav-mobile-tools">

@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import Image from "next/image";
 import { WHATSAPP_URL, INSTAGRAM_URL } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -370,14 +372,14 @@ export default function PoliticaDePrivacidad() {
       `}</style>
 
       <header className="nav">
-        <a className="logo" href="/" aria-label="agentic4biz inicio">
-          <img src="/logotipo.png" alt="Agentic4Biz" />
-        </a>
+        <Link className="logo" href="/" aria-label="agentic4biz inicio">
+          <Image src="/logotipo.png" alt="Agentic4Biz" width={150} height={40} />
+        </Link>
         <nav className="nav-links" aria-label="Principal">
-          <a href="/#servicios">01 Servicios</a>
-          <a href="/#proceso">02 Proceso</a>
-          <a href="/#clientes">03 Clientes</a>
-          <a href="/#comparativa">04 Comparativa</a>
+          <Link href="/#servicios">01 Servicios</Link>
+          <Link href="/#proceso">02 Proceso</Link>
+          <Link href="/#clientes">03 Clientes</Link>
+          <Link href="/#comparativa">04 Comparativa</Link>
         </nav>
         <div className="nav-meta">
           <a href={WHATSAPP_URL} className="cta" target="_blank" rel="noreferrer">
@@ -431,7 +433,7 @@ export default function PoliticaDePrivacidad() {
           <div>
             <div className="footer-h">Legal</div>
             <div className="footer-links">
-              <a href="/politica-de-privacidad">Política de Privacidad</a>
+              <Link href="/politica-de-privacidad">Política de Privacidad</Link>
             </div>
           </div>
           <div>
