@@ -1,0 +1,1 @@
+find / -name "package.json" 2>/dev/null | while read file; do if grep -q "\"name\": \"undici\"" "$file"; then grep -H "\"version\"" "$file"; fi; done
