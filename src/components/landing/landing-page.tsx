@@ -14,6 +14,16 @@ import {
 
 type ComparisonSide = "manual" | "agentic";
 
+declare global {
+  interface Window {
+    gtag_report_conversion?: (url?: string) => void;
+  }
+}
+
+function trackConversion() {
+  window.gtag_report_conversion?.();
+}
+
 function LanguageSwitch({
   content,
   language,
@@ -61,7 +71,7 @@ export function LandingPage() {
         <nav className={`nav-links ${menuOpen ? "open" : ""}`} id="nav-links" aria-label={content.navAria}>
           <div className="nav-mobile-tools">
             <LanguageSwitch content={content} language={language} setLanguage={changeLanguage} />
-            <a href={WHATSAPP_URL} className="cta" target="_blank" rel="noreferrer" onClick={closeMenu}>
+            <a href={WHATSAPP_URL} className="cta" target="_blank" rel="noreferrer" onClick={() => { closeMenu(); trackConversion(); }}>
               {content.navCta}
             </a>
           </div>
@@ -73,7 +83,7 @@ export function LandingPage() {
         </nav>
         <div className="nav-meta">
           <LanguageSwitch content={content} language={language} setLanguage={setLanguage} />
-          <a href={WHATSAPP_URL} className="cta" target="_blank" rel="noreferrer">
+          <a href={WHATSAPP_URL} className="cta" target="_blank" rel="noreferrer" onClick={trackConversion}>
             {content.navCta}
           </a>
         </div>
@@ -111,7 +121,7 @@ export function LandingPage() {
               </h1>
               <p className="lede">{content.hero.lede}</p>
               <div className="hero-btns">
-                <a href={WHATSAPP_URL} className="cta1" target="_blank" rel="noreferrer">
+                <a href={WHATSAPP_URL} className="cta1" target="_blank" rel="noreferrer" onClick={trackConversion}>
                   {content.hero.primaryCta}
                 </a>
                 <a href="#clientes" className="cta2">
@@ -328,7 +338,7 @@ function ChatbotWidget({ language }: { language: Language }) {
                 }
               }}
             />
-            <button type="button" onClick={() => void sendMessage()} disabled={loading}>
+            <button type="button" onClick={() => { void sendMessage(); trackConversion(); }} disabled={loading}>
               {loading ? "..." : uiText.send}
             </button>
           </div>
@@ -536,7 +546,7 @@ function FinalCta({ content }: { content: LandingContent }) {
           </span>
         ))}
       </h2>
-      <a href={WHATSAPP_URL} className="big-button" target="_blank" rel="noreferrer">
+      <a href={WHATSAPP_URL} className="big-button" target="_blank" rel="noreferrer" onClick={trackConversion}>
         {content.finalCta.button}
         <span className="big-button-arrow" aria-hidden="true">
           ↗
