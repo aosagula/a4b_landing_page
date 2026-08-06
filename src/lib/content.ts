@@ -40,7 +40,7 @@ export const contentByLanguage = {
         "Construimos fuerzas de trabajo autónomas para empresas medianas y corporativos. Cero plantillas. Solo lo que tu operación necesita.",
       primaryCta: "Hablemos",
       secondaryCta: "Ver clientes",
-      demoCta: "Demos"
+      demoCta: "Casos de Ejemplo"
     },
     marqueeAria: "Clientes",
     marqueeItems: sharedMarqueeItems,
@@ -218,7 +218,7 @@ export const contentByLanguage = {
         "We build autonomous workforces for mid-market companies and enterprises. No templates. Only what your operation needs.",
       primaryCta: "Let's talk",
       secondaryCta: "View clients",
-      demoCta: "Demos"
+      demoCta: "Example Cases"
     },
     marqueeAria: "Clients",
     marqueeItems: sharedMarqueeItems,
