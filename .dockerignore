@@ -1,4 +1,7 @@
 .git
+.env
+.env.*
+.pnpm-store
 .next
 node_modules
 npm-debug.log*

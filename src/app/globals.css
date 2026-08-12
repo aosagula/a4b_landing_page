@@ -1797,3 +1797,357 @@ footer.foot {
     height: 26px;
   }
 }
+
+.performance-nav {
+  min-height: 104px;
+}
+
+.performance-nav .nav-meta > span {
+  color: var(--ink-soft);
+}
+
+.performance-page input[type="range"] {
+  width: 100%;
+  height: 2px;
+  margin: 0;
+  appearance: none;
+  background: var(--ink);
+  outline: 0;
+}
+
+.performance-page input[type="range"]::-webkit-slider-thumb {
+  width: 24px;
+  height: 24px;
+  appearance: none;
+  border: 3px solid var(--paper);
+  border-radius: 50%;
+  background: var(--ink);
+  box-shadow: 0 0 0 2px var(--ink);
+  cursor: pointer;
+}
+
+.performance-page input[type="range"]::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--paper);
+  border-radius: 50%;
+  background: var(--ink);
+  box-shadow: 0 0 0 2px var(--ink);
+  cursor: pointer;
+}
+
+.performance-page input[type="range"]:hover::-webkit-slider-thumb,
+.performance-page input[type="range"]:focus-visible::-webkit-slider-thumb {
+  background: var(--accent);
+}
+
+.performance-page input[type="range"]:hover::-moz-range-thumb,
+.performance-page input[type="range"]:focus-visible::-moz-range-thumb {
+  background: var(--accent);
+}
+
+.performance-hero {
+  padding: 80px 56px 60px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.performance-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  color: var(--ink-soft);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.performance-kicker .bar {
+  width: 32px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.performance-title {
+  max-width: 1200px;
+  margin: 0 0 32px;
+  font-size: clamp(64px, 7.2vw, 118px);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 0.96;
+  text-wrap: balance;
+}
+
+.performance-title span {
+  color: var(--accent);
+}
+
+.performance-lede {
+  max-width: 660px;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 19px;
+  text-wrap: pretty;
+}
+
+.performance-calc {
+  padding: 80px 56px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.performance-calc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 2px solid var(--ink);
+}
+
+.performance-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding: 56px;
+  border-right: 2px solid var(--ink);
+}
+
+.performance-field label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.performance-field-hint {
+  margin-bottom: 20px;
+  color: var(--ink-mute);
+  font-size: 13px;
+}
+
+.performance-field-value {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 16px;
+  color: var(--accent);
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.performance-field-value span {
+  color: var(--ink-soft);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.performance-range-ends {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  color: var(--ink-mute);
+  font-size: 12px;
+}
+
+.performance-outputs {
+  display: flex;
+  flex-direction: column;
+  padding: 56px;
+}
+
+.performance-out-row {
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.performance-out-row-last {
+  border-bottom: 0;
+}
+
+.performance-out-label {
+  margin-bottom: 12px;
+  color: var(--ink-soft);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.performance-out-num {
+  font-size: clamp(44px, 5vw, 72px);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.performance-out-num.save {
+  color: var(--accent);
+}
+
+.performance-out-sub {
+  margin-top: 8px;
+  color: var(--ink-mute);
+  font-size: 14px;
+}
+
+.performance-pct {
+  margin-top: 32px;
+}
+
+.performance-pct label {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.performance-pct label span {
+  color: var(--accent);
+}
+
+.performance-calc-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: auto;
+  padding: 20px 28px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.performance-calc-cta:hover,
+.performance-calc-cta:focus-visible {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+.performance-assumptions {
+  padding: 48px 56px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.performance-assumptions p {
+  max-width: 820px;
+  margin: 0;
+  color: var(--ink-mute);
+  font-size: 14px;
+  text-wrap: pretty;
+}
+
+.performance-final {
+  padding: 120px 56px;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.performance-final-lede {
+  max-width: 620px;
+  margin: -32px 0 44px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 19px;
+  text-wrap: pretty;
+}
+
+@media (max-width: 1024px) {
+  .performance-nav {
+    min-height: 78px;
+  }
+
+  .performance-hero,
+  .performance-calc,
+  .performance-final {
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+
+  .performance-title {
+    font-size: 64px;
+  }
+
+  .performance-calc-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .performance-inputs {
+    border-right: 0;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .performance-assumptions {
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+}
+
+@media (max-width: 720px) {
+  .performance-nav {
+    min-height: 70px;
+  }
+
+  .performance-hero {
+    padding: 40px 20px 32px;
+  }
+
+  .performance-kicker {
+    margin-bottom: 24px;
+    font-size: 10px;
+    line-height: 1.5;
+  }
+
+  .performance-title {
+    font-size: 40px;
+    letter-spacing: -0.035em;
+  }
+
+  .performance-lede {
+    font-size: 16px;
+  }
+
+  .performance-calc {
+    padding: 40px 20px;
+  }
+
+  .performance-inputs,
+  .performance-outputs {
+    padding: 28px 20px;
+  }
+
+  .performance-field-value {
+    font-size: 36px;
+  }
+
+  .performance-out-num {
+    font-size: 40px;
+  }
+
+  .performance-pct label {
+    align-items: baseline;
+    font-size: 13px;
+  }
+
+  .performance-calc-cta {
+    padding: 18px 20px;
+    font-size: 15px;
+  }
+
+  .performance-assumptions {
+    padding: 32px 20px;
+  }
+
+  .performance-final {
+    padding: 56px 20px;
+  }
+
+  .performance-final-lede {
+    margin: -12px 0 32px;
+    font-size: 16px;
+  }
+}
