@@ -5,3 +5,4 @@ npm-debug.log*
 .docker-config/
 .env*
 !.env.example
+.pnpm-store/

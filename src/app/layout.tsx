@@ -5,7 +5,7 @@ import { GoogleTagManager } from '@next/third-parties/google';
 import "./globals.css";
 
 const siteUrl = "https://agentic4biz.com";
-const metaPixelId = "1655722448999268";
+const metaPixelId = "2298448734020956";
 const title = "agentic4biz · Agentes de IA para operaciones empresariales";
 const description =
   "Diseñamos, implementamos y operamos agentes de IA a medida para empresas medianas y corporativos.";
