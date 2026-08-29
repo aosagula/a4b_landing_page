@@ -66,7 +66,7 @@ export function LandingPage() {
     <>
       <header className="nav">
         <a className="logo" href="#inicio" aria-label="agentic4biz inicio">
-          <Image src="/logotipo.png" alt="Agentic4Biz" width={150} height={40} />
+          <Image src="/logotipo_transparente.png" alt="Agentic4Biz" width={2172} height={724} />
         </a>
         <nav className={`nav-links ${menuOpen ? "open" : ""}`} id="nav-links" aria-label={content.navAria}>
           <div className="nav-mobile-tools">

@@ -40,7 +40,7 @@ export function PerformancePage() {
     <>
       <header className="nav performance-nav">
         <Link className="logo" href="/" aria-label="agentic4biz inicio">
-          <Image src="/logotipo.png" alt="Agentic4Biz" width={172} height={46} priority />
+          <Image src="/logotipo_transparente.png" alt="Agentic4Biz" width={2172} height={724} priority />
         </Link>
         <nav className={`nav-links ${menuOpen ? "open" : ""}`} id="performance-nav-links" aria-label="Performance">
           <Link href="/" onClick={closeMenu}>Inicio</Link>

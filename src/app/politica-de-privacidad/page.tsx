@@ -373,7 +373,7 @@ export default function PoliticaDePrivacidad() {
 
       <header className="nav">
         <Link className="logo" href="/" aria-label="agentic4biz inicio">
-          <Image src="/logotipo.png" alt="Agentic4Biz" width={150} height={40} />
+          <Image src="/logotipo_transparente.png" alt="Agentic4Biz" width={2172} height={724} />
         </Link>
         <nav className="nav-links" aria-label="Principal">
           <Link href="/#servicios">01 Servicios</Link>
