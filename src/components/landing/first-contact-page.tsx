@@ -137,11 +137,6 @@ export function FirstContactPage() {
               automatización e Inteligencia Artificial para simplificar tareas, reducir costos
               operativos y mejorar la eficiencia.
             </p>
-            <p className="fc-hero-note">
-              No necesitás saber qué tecnología usar.
-              <br />
-              Contanos qué proceso querés mejorar.
-            </p>
             <div className="hero-btns fc-hero-btns">
               <a href="#agenda" className="cta1" onClick={trackConversion}>
                 Agendar una conversación
@@ -169,6 +164,8 @@ export function FirstContactPage() {
 
         <section className="fc-calendar" id="agenda">
           <div className="small-label">AGENDA / 02</div>
+          <p className="fc-section-subhead">Elegí el día y horario que te resulte más cómodo.</p>
+          <CentralizeEmbed />
           <h2 className="fc-calendar-title">Hablemos de tu proceso</h2>
           <p className="lede fc-lede">
             Agendá una conversación para contarnos qué tarea, proceso o problema operativo te
@@ -180,8 +177,6 @@ export function FirstContactPage() {
               <li key={item}>{item}</li>
             ))}
           </ul>
-          <p className="fc-section-subhead">Elegí el día y horario que te resulte más cómodo.</p>
-          <CentralizeEmbed />
           <p className="fc-calendar-note">
             Sin compromiso. Sin presentaciones comerciales interminables.
             <br />
