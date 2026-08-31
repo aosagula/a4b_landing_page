@@ -126,40 +126,28 @@ export function FirstContactPage() {
 
       <main className="fc-page">
         <section className="fc-hero">
-          <div className="fc-hero-text">
-            <h1 className="fc-hero-title">
-              <span className="title-line">Automatizá procesos.</span>
-              <span className="title-line">Ganá tiempo.</span>
-              <span className="title-line">Reducí errores.</span>
-            </h1>
-            <p className="lede fc-lede">
-              En Agentic4Biz analizamos cómo trabaja hoy tu empresa e implementamos soluciones de
-              automatización e Inteligencia Artificial para simplificar tareas, reducir costos
-              operativos y mejorar la eficiencia.
-            </p>
-            <div className="hero-btns fc-hero-btns">
-              <a href="#agenda" className="cta1" onClick={trackConversion}>
-                Agendar una conversación
-              </a>
-              <a href="#como-trabajamos" className="cta2">
-                Ver cómo trabajamos
-                <span aria-hidden="true"> ↘</span>
-              </a>
-            </div>
-            <p className="fc-hero-tags">
-              Automatización • Inteligencia Artificial • Integraciones • Software a medida
-            </p>
+          <h1 className="fc-hero-title">
+            <span className="title-line">Automatizá procesos.</span>
+            <span className="title-line">Ganá tiempo.</span>
+            <span className="title-line">Reducí errores.</span>
+          </h1>
+          <p className="lede fc-lede">
+            En Agentic4Biz analizamos cómo trabaja hoy tu empresa e implementamos soluciones de
+            automatización e Inteligencia Artificial para simplificar tareas, reducir costos
+            operativos y mejorar la eficiencia.
+          </p>
+          <div className="hero-btns fc-hero-btns">
+            <a href="#agenda" className="cta1" onClick={trackConversion}>
+              Agendar una conversación
+            </a>
+            <a href="#como-trabajamos" className="cta2">
+              Ver cómo trabajamos
+              <span aria-hidden="true"> ↘</span>
+            </a>
           </div>
-          <div className="fc-hero-media">
-            <Image
-              src="/images/hero-first-contact.png"
-              alt="Agentic4Biz: automatización de procesos con Inteligencia Artificial"
-              width={1536}
-              height={1024}
-              priority
-              sizes="(max-width: 720px) 100vw, 480px"
-            />
-          </div>
+          <p className="fc-hero-tags">
+            Automatización • Inteligencia Artificial • Integraciones • Software a medida
+          </p>
         </section>
 
         <section className="fc-calendar" id="agenda">
