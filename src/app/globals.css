@@ -2275,6 +2275,15 @@ footer.foot {
   margin-bottom: 28px;
 }
 
+.fc-hero-btns .cta1 {
+  background: var(--accent);
+}
+
+.fc-hero-btns .cta1:hover {
+  background: var(--accent-2);
+  color: var(--ink);
+}
+
 .fc-hero-tags {
   margin: 0;
   font-family: "JetBrains Mono", monospace;
