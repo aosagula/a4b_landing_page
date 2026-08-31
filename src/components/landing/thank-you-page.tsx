@@ -11,23 +11,12 @@ export function ThankYouPage() {
         </Link>
         <span />
         <Link href="/" className="cta">
-          Volver al inicio
+          Volver a la Landing
         </Link>
       </header>
 
       <main>
         <section className="final-cta ty-hero">
-          <div className="ty-check" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="32" height="32" fill="none">
-              <path
-                d="M4 12.5L9.5 18L20 6"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
           <div className="small-label final-label">CONTACTO AGENDADO</div>
           <h1 className="ty-title">Tu reunión quedó agendada correctamente.</h1>
           <p className="ty-lede">
@@ -39,16 +28,10 @@ export function ThankYouPage() {
             reunión.
           </p>
           <p className="ty-thanks">¡Muchas gracias!</p>
-          <Link href="/" className="big-button">
-            Volver al inicio
-            <span className="big-button-arrow" aria-hidden="true">↗</span>
-          </Link>
-        </section>
 
-        <section className="ty-audience">
-          <div className="small-label">PARA QUIÉN ES</div>
-          <h2 className="fc-section-title">¿Para quién es esta consultoría?</h2>
-          <ul className="fc-list">
+          <div className="small-label final-label ty-audience-label">PARA QUIÉN ES</div>
+          <h2 className="ty-title ty-audience-title">¿Para quién es esta consultoría?</h2>
+          <ul className="fc-list ty-list">
             <li>
               Empresas que estén buscando optimizar procesos manuales, reducir costos de
               contratación y minimizar los errores operativos.
@@ -59,6 +42,10 @@ export function ThankYouPage() {
             </li>
             <li>Pymes que buscan comenzar a digitalizar sus operaciones.</li>
           </ul>
+          <Link href="/" className="big-button ty-audience-cta">
+            Volver a la Landing
+            <span className="big-button-arrow" aria-hidden="true">↗</span>
+          </Link>
         </section>
       </main>
 
