@@ -148,7 +148,7 @@ export function FirstContactPage() {
         </Link>
         <span />
         <a href="#agenda" className="cta" onClick={trackConversion}>
-          Agendar
+          Agendar consultoría gratis
         </a>
       </header>
 
@@ -165,7 +165,7 @@ export function FirstContactPage() {
           </p>
           <div className="hero-btns fc-hero-btns">
             <a href="#agenda" className="cta1" onClick={trackConversion}>
-              Agendar una conversación
+              Agendar consultoría gratis
             </a>
             <a href="#como-trabajamos" className="cta2">
               Ver cómo trabajamos
@@ -257,7 +257,7 @@ export function FirstContactPage() {
             Contanos el problema. Nosotros analizamos cómo mejorarlo.
           </p>
           <a href="#agenda" className="big-button" onClick={trackConversion}>
-            Agendar una conversación
+            Agendar consultoría gratis
             <span className="big-button-arrow" aria-hidden="true">↗</span>
           </a>
         </section>
