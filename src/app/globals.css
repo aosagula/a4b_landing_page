@@ -2260,10 +2260,10 @@ footer.foot {
 
 .fc-hero-title {
   margin: 0 0 24px;
-  font-size: 80px;
+  font-size: 56px;
   font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 1.04;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
 }
 
 .fc-lede {
@@ -2494,7 +2494,7 @@ footer.foot {
   }
 
   .fc-hero-title {
-    font-size: 56px;
+    font-size: 44px;
   }
 
   .fc-lede {

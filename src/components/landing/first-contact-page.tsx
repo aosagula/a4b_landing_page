@@ -155,14 +155,13 @@ export function FirstContactPage() {
       <main className="fc-page">
         <section className="fc-hero">
           <h1 className="fc-hero-title">
-            <span className="title-line">Automatizá procesos.</span>
-            <span className="title-line">Ganá tiempo.</span>
-            <span className="title-line">Reducí errores.</span>
+            <span className="title-line">Desarrollamos soluciones de integración</span>
+            <span className="title-line">y tableros en menos de 60 días.</span>
           </h1>
           <p className="lede fc-lede">
-            En Agentic4Biz analizamos cómo trabaja hoy tu empresa e implementamos soluciones de
-            automatización e Inteligencia Artificial para simplificar tareas, reducir costos
-            operativos y mejorar la eficiencia.
+            Nuestros clientes nos eligen porque reducen sus tareas manuales en más de un 50% y
+            los errores en más del 90%. Además, podés hacer mucho más sin necesidad de contratar
+            más personal.
           </p>
           <div className="hero-btns fc-hero-btns">
             <a href="#agenda" className="cta1" onClick={trackConversion}>
