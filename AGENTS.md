@@ -4,6 +4,9 @@
 
 This repository contains a Next.js landing page plus documentation and standalone design prototypes.
 
+
+
+
 - `src/app/` contains the Next.js App Router entrypoints, global metadata, and CSS.
 - `src/components/landing/` contains landing page sections and client-side interactions.
 
