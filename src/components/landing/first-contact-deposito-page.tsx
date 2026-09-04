@@ -6,7 +6,10 @@ import Link from "next/link";
 import Script from "next/script";
 import { WHATSAPP_URL, INSTAGRAM_URL } from "@/lib/content";
 
-const FIRST_CONTACT_META_PIXEL_ID = "1655722448999268";
+// Mismo pixel dedicado que first_contact. Si más adelante querés reportes
+// separados para esta landing, creá un Pixel nuevo en Meta Business Manager
+// y reemplazá este ID.
+const DEPOSITO_META_PIXEL_ID = "1655722448999268";
 
 declare global {
   interface Window {
@@ -25,99 +28,82 @@ function trackConversion() {
 const CENTRALIZE_EMBED_HTML = `<iframe src="https://link.centralize.es/widget/booking/ltur98fTS4F7fxTh1ZpD" allow="payment" style="width: 100%;border:none;overflow: hidden;" scrolling="no" id="ltur98fTS4F7fxTh1ZpD_1787952014678"></iframe><br><script src="https://link.centralize.es/js/form_embed.js" type="text/javascript"></script>`;
 
 const agendaChecklist = [
-  "Qué proceso querés optimizar",
-  "Qué tareas consumen más tiempo",
-  "Qué errores o demoras se generan hoy",
-  "Qué sistemas y herramientas utilizás",
-  "Qué posibilidades existen de automatización"
+  "Qué proceso querés optimizar (pedidos, stock, despachos)",
+  "Qué tareas consumen más tiempo hoy",
+  "Qué errores o demoras se generan con la carga manual",
+  "Qué sistemas usás (ERP, planillas, WhatsApp con clientes)",
+  "Qué posibilidades existen de integración"
 ];
 
 const workSteps = [
   {
     number: "01",
-    title: "Entendemos el proceso",
-    description: "Nos mostrás cómo trabajan hoy, dónde aparecen las demoras, errores o tareas repetitivas."
+    title: "Entendemos tu operación",
+    description: "Nos mostrás cómo circula hoy la información entre tu depósito, tus clientes y tus proveedores."
   },
   {
     number: "02",
     title: "Detectamos oportunidades",
-    description:
-      "Analizamos qué partes pueden automatizarse, integrarse o mejorarse utilizando tecnología e Inteligencia Artificial."
+    description: "Analizamos qué partes del proceso pueden automatizarse o integrarse sin romper lo que ya funciona."
   },
   {
     number: "03",
     title: "Diseñamos la solución",
-    description: "Definimos una solución adaptada a tu operación y a los sistemas que ya utiliza tu empresa."
+    description: "Definimos una integración adaptada a tu operación y a los sistemas que ya usás, sin imponerte un ERP nuevo."
   },
   {
     number: "04",
     title: "La implementamos",
-    description: "Integramos y desarrollamos la solución para que forme parte del trabajo cotidiano de tu equipo."
+    description: "Integramos y desarrollamos la solución para que forme parte del trabajo diario de tu equipo de depósito."
   }
 ];
 
 const improveItems = [
   {
-    title: "Automatizar tareas repetitivas",
-    description: "Carga de información, documentos, reportes, controles, seguimientos y tareas administrativas."
+    title: "Automatizar carga de pedidos",
+    description: "De WhatsApp, mail o planillas al sistema, sin tipeo manual ni copiar y pegar."
   },
   {
-    title: "Reducir errores",
-    description: "Menos carga manual, duplicación de información y procesos inconsistentes."
+    title: "Reducir errores de stock",
+    description: "Menos discrepancias entre lo que dice el sistema y lo que hay en el depósito."
   },
   {
-    title: "Integrar sistemas",
-    description: "ERP, CRM, bases de datos, correo, WhatsApp y aplicaciones internas."
+    title: "Integrar con tus clientes",
+    description: "Que puedan consultar stock, pedidos y estados de entrega sin tener que llamarte."
   },
   {
-    title: "Aplicar Inteligencia Artificial",
-    description: "Analizar documentos, clasificar información, responder consultas y asistir en decisiones."
+    title: "Automatizar reportes",
+    description: "De inventario, despachos y pendientes, sin armar planillas a mano."
   },
   {
-    title: "Optimizar costos",
-    description: "Procesos más rápidos y con menor necesidad de intervención manual."
+    title: "Optimizar tiempos de entrega",
+    description: "Menos demoras causadas por información que no llega a tiempo entre áreas."
   }
 ];
 
 const improveExamples = [
   {
     image: "/images/casos/carga-facturas-proveedores.png",
-    text: "Recepción y clasificación de facturas de proveedores, con carga automática en tu sistema contable o ERP."
-  },
-  {
-    image: "/images/casos/autocompletado-presupuestos.png",
-    text: "Autocompletado de presupuestos para reducir tareas manuales y acelerar la respuesta comercial."
-  },
-  {
-    image: "/images/casos/envio-facturas.png",
-    text: "Generación y envío automático de facturas a tus clientes."
-  },
-  {
-    image: "/images/casos/seguimiento-presupuestos.png",
-    text: "Seguimiento automático de presupuestos enviados y oportunidades comerciales sin respuesta."
-  },
-  {
-    image: "/images/casos/clasificacion-consultas.png",
-    text: "Registro y clasificación de consultas recibidas por WhatsApp, correo, formularios web o redes sociales."
+    text: "Recepción y clasificación de facturas de proveedores, con carga automática en tu sistema."
   },
   {
     image: "/images/casos/extraccion-datos.png",
-    text: "Extracción automática de datos desde PDFs, facturas, remitos, órdenes de compra y otros documentos."
-  },
-  {
-    image: "/images/casos/reportes.png",
-    text: "Generación automática de reportes administrativos y de gestión a partir de información dispersa en distintos sistemas o archivos."
+    text: "Extracción automática de datos desde remitos, órdenes de compra y otros documentos del depósito."
   },
   {
     image: "/images/casos/integracion.png",
-    text: "Integración entre Excel, ERP, CRM, correo, WhatsApp y otras herramientas para evitar copiar y pegar información manualmente."
+    text: "Integración entre Excel, ERP, WhatsApp y otras herramientas para evitar copiar y pegar información manualmente."
+  },
+  {
+    image: "/images/casos/reportes.png",
+    text: "Generación automática de reportes de inventario y despachos a partir de información dispersa en distintos sistemas."
   }
 ];
 
-export function FirstContactPage() {
+export function FirstContactDepositoPage() {
   return (
     <>
-      <Script id="meta-pixel-first-contact" strategy="afterInteractive">
+      <Script id="meta-pixel-first-contact-deposito" strategy="afterInteractive">
         {`
           !function(f,b,e,v,n,t,s)
           {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -127,8 +113,8 @@ export function FirstContactPage() {
           t.src=v;s=b.getElementsByTagName(e)[0];
           s.parentNode.insertBefore(t,s)}(window, document,'script',
           'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '${FIRST_CONTACT_META_PIXEL_ID}');
-          fbq('trackSingle', '${FIRST_CONTACT_META_PIXEL_ID}', 'PageView');
+          fbq('init', '${DEPOSITO_META_PIXEL_ID}');
+          fbq('trackSingle', '${DEPOSITO_META_PIXEL_ID}', 'PageView');
         `}
       </Script>
       <noscript>
@@ -137,7 +123,7 @@ export function FirstContactPage() {
           height="1"
           width="1"
           style={{ display: "none" }}
-          src={`https://www.facebook.com/tr?id=${FIRST_CONTACT_META_PIXEL_ID}&ev=PageView&noscript=1`}
+          src={`https://www.facebook.com/tr?id=${DEPOSITO_META_PIXEL_ID}&ev=PageView&noscript=1`}
           alt=""
         />
       </noscript>
@@ -155,13 +141,12 @@ export function FirstContactPage() {
       <main className="fc-page">
         <section className="fc-hero">
           <h1 className="fc-hero-title">
-            <span className="title-line">Desarrollamos soluciones de integración</span>
-            <span className="title-line">y tableros en menos de 60 días.</span>
+            <span className="title-line">¿Depósito o distribuidora</span>
+            <span className="title-line">con planillas por todos lados?</span>
           </h1>
           <p className="lede fc-lede">
-            Nuestros clientes nos eligen porque reducen sus tareas manuales en más de un 50% y
-            los errores en más del 90%. Además, podés hacer mucho más sin necesidad de contratar
-            más personal.
+            Integramos tu información con la de tus clientes y proveedores en semanas, no en meses.
+            Menos errores, menos retrabajo, más control de tu operación.
           </p>
           <div className="hero-btns fc-hero-btns">
             <a href="#agenda" className="cta1" onClick={trackConversion}>
@@ -173,7 +158,7 @@ export function FirstContactPage() {
             </a>
           </div>
           <p className="fc-hero-tags">
-            Automatización • Inteligencia Artificial • Integraciones • Software a medida
+            Integración de sistemas • Automatización de pedidos • Menos errores de stock • Depósitos y Distribuidoras
           </p>
         </section>
 
@@ -181,9 +166,9 @@ export function FirstContactPage() {
           <div className="small-label">AGENDA / 02</div>
           <p className="fc-section-subhead">Elegí el día y horario que te resulte más cómodo.</p>
           <CentralizeEmbed />
-          <h2 className="fc-calendar-title">Hablemos de tu proceso</h2>
+          <h2 className="fc-calendar-title">Hablemos de tu operación</h2>
           <p className="lede fc-lede">
-            Agendá una conversación para contarnos qué tarea, proceso o problema operativo te
+            Agendá una conversación para contarnos qué proceso de tu depósito o distribuidora te
             gustaría mejorar.
           </p>
           <p className="fc-section-subhead">En una primera charla buscamos entender:</p>
@@ -195,18 +180,18 @@ export function FirstContactPage() {
           <p className="fc-calendar-note">
             Sin compromiso. Sin presentaciones comerciales interminables.
             <br />
-            Hablemos directamente de tu problema.
+            Hablemos directamente de tu operación.
           </p>
         </section>
 
         <section className="fc-work" id="como-trabajamos">
           <div className="small-label">CÓMO TRABAJAMOS / 03</div>
-          <h2 className="fc-section-title">No empezamos por la tecnología. Empezamos por tu problema.</h2>
-          <p className="lede fc-lede">Cada empresa trabaja de una manera diferente.</p>
-          <p className="lede fc-lede">Por eso no llegamos recomendando una herramienta o una plataforma.</p>
+          <h2 className="fc-section-title">No empezamos por la tecnología. Empezamos por tu operación.</h2>
+          <p className="lede fc-lede">Cada depósito y cada distribuidora trabaja de una manera diferente.</p>
+          <p className="lede fc-lede">Por eso no llegamos recomendando un ERP nuevo bajo el brazo.</p>
           <p className="lede fc-lede">
-            Primero entendemos cómo funciona actualmente tu proceso, dónde se pierde tiempo y qué
-            tareas pueden simplificarse.
+            Primero entendemos cómo circula hoy la información entre tu depósito, tus clientes y tus
+            proveedores, y dónde se generan los errores o las demoras.
           </p>
           <div className="steps fc-steps">
             {workSteps.map((step) => (
@@ -221,7 +206,7 @@ export function FirstContactPage() {
 
         <section className="fc-improve">
           <div className="small-label">QUÉ PODEMOS MEJORAR / 04</div>
-          <h2 className="fc-section-title">Hay muchos procesos que pueden trabajar mejor.</h2>
+          <h2 className="fc-section-title">Hay muchos procesos de depósito que pueden trabajar mejor.</h2>
           <div className="fc-improve-grid">
             {improveItems.map((item) => (
               <div className="fc-improve-item" key={item.title}>
@@ -250,7 +235,9 @@ export function FirstContactPage() {
 
         <section className="final-cta fc-final-cta" id="contacto">
           <div className="small-label final-label">CONTACTO / 05</div>
-          <h2 className="fc-final-title">¿Hay algún proceso en tu empresa que te esté haciendo perder tiempo?</h2>
+          <h2 className="fc-final-title">
+            ¿Hay algún proceso en tu depósito o distribuidora que te esté haciendo perder tiempo?
+          </h2>
           <p className="fc-final-lede">
             No necesitás tener definida la solución.
             <br />
@@ -323,7 +310,7 @@ function CentralizeEmbed() {
         <p>Acá se va a mostrar el calendario de centralize.es.</p>
         <p>
           Pegá el código de embed en <code>CENTRALIZE_EMBED_HTML</code> (
-          <code>src/components/landing/first-contact-page.tsx</code>) para activarlo.
+          <code>src/components/landing/first-contact-deposito-page.tsx</code>) para activarlo.
         </p>
         <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" onClick={trackConversion} className="fc-fallback-link">
           Mientras tanto, escribinos por WhatsApp →
