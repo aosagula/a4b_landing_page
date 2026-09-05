@@ -2293,6 +2293,22 @@ footer.foot {
   letter-spacing: 0.06em;
 }
 
+.fc-hero-claim {
+  margin: 16px 0 32px;
+  max-width: 760px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.fc-hero-note {
+  margin: 0;
+  max-width: 620px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
 .fc-section-title {
   margin: 16px 0 20px;
   max-width: 720px;
@@ -2500,6 +2516,10 @@ footer.foot {
   .fc-lede {
     font-size: 18px;
   }
+
+  .fc-hero-claim {
+    font-size: 18px;
+  }
 }
 
 @media (max-width: 720px) {
@@ -2523,6 +2543,11 @@ footer.foot {
 
   .fc-lede {
     font-size: 17px;
+  }
+
+  .fc-hero-claim {
+    font-size: 17px;
+    margin: 14px 0 26px;
   }
 
   .fc-section-title {

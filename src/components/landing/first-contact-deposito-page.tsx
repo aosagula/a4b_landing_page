@@ -23,6 +23,11 @@ function trackConversion() {
   window.fbq?.("track", "Lead");
 }
 
+function trackHeroCta() {
+  trackConversion();
+  window.fbq?.("trackCustom", "cta_evaluar_caso");
+}
+
 // Embed del calendario de centralize.es. form_embed.js escucha mensajes del iframe
 // para ajustar su alto dinámicamente, por eso no se fuerza un height fijo acá.
 const CENTRALIZE_EMBED_HTML = `<iframe src="https://link.centralize.es/widget/booking/ltur98fTS4F7fxTh1ZpD" allow="payment" style="width: 100%;border:none;overflow: hidden;" scrolling="no" id="ltur98fTS4F7fxTh1ZpD_1787952014678"></iframe><br><script src="https://link.centralize.es/js/form_embed.js" type="text/javascript"></script>`;
@@ -140,25 +145,23 @@ export function FirstContactDepositoPage() {
 
       <main className="fc-page">
         <section className="fc-hero">
+          <div className="small-label">EMPRESA LOGÍSTICA</div>
           <h1 className="fc-hero-title">
-            <span className="title-line">¿Depósito o distribuidora</span>
-            <span className="title-line">con planillas por todos lados?</span>
+            <span className="title-line">Creamos una app a medida</span>
+            <span className="title-line">para tu operación logística.</span>
           </h1>
           <p className="lede fc-lede">
-            Integramos tu información con la de tus clientes y proveedores en semanas, no en meses.
-            Menos errores, menos retrabajo, más control de tu operación.
+            Digitalizá y centralizá documentos, personal, despachos, inventario, reportes e
+            integraciones con tus clientes.
           </p>
+          <p className="fc-hero-claim">Hecha a medida y funcionando en menos de 30 días.</p>
           <div className="hero-btns fc-hero-btns">
-            <a href="#agenda" className="cta1" onClick={trackConversion}>
-              Agendar consultoría gratis
-            </a>
-            <a href="#como-trabajamos" className="cta2">
-              Ver cómo trabajamos
-              <span aria-hidden="true"> ↘</span>
+            <a href="#agenda" className="cta1" onClick={trackHeroCta}>
+              Quiero evaluar mi caso
             </a>
           </div>
-          <p className="fc-hero-tags">
-            Integración de sistemas • Automatización de pedidos • Menos errores de stock • Depósitos y Distribuidoras
+          <p className="fc-hero-note">
+            En 20 minutos analizamos tu caso y te decimos si podemos resolverlo.
           </p>
         </section>
 
