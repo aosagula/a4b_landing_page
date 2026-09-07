@@ -2255,7 +2255,7 @@ footer.foot {
 
 .fc-hero {
   max-width: 1100px;
-  padding: 96px 0 72px;
+  padding: 96px 0 40px;
 }
 
 .fc-hero-title {
@@ -2371,7 +2371,7 @@ footer.foot {
 }
 
 .fc-calendar {
-  padding: 64px 0 80px;
+  padding: 0px 0 80px;
   border-top: 2px solid var(--ink);
 }
 
@@ -2534,7 +2534,7 @@ footer.foot {
   }
 
   .fc-hero {
-    padding: 56px 0 40px;
+    padding: 40px 0 24px;
   }
 
   .fc-hero-title {
@@ -2554,7 +2554,10 @@ footer.foot {
     font-size: 28px;
   }
 
-  .fc-calendar,
+  .fc-calendar {
+    padding: 24px 0 56px;
+  }
+
   .fc-work,
   .fc-improve {
     padding: 48px 0 56px;
