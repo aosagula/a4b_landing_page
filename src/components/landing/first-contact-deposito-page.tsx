@@ -139,30 +139,35 @@ export function FirstContactDepositoPage() {
         </Link>
         <span />
         <a href="#agenda" className="cta" onClick={trackConversion}>
-          Agendar consultoría gratis
+          Agendá una llamada gratis
         </a>
       </header>
 
       <main className="fc-page">
-        <section className="fc-hero">
-          <div className="small-label">EMPRESA LOGÍSTICA</div>
+        <section className="fc-hero fc-hero-deposito">
+          <div className="fc-hero-pill">Software a medida con garantía</div>
           <h1 className="fc-hero-title">
-            <span className="title-line">Creamos una app a medida</span>
-            <span className="title-line">para tu operación logística.</span>
+            <span className="title-line">Desarrollamos tu Software o App</span>
+            <span className="title-line fc-title-accent">En Menos De 30 Días</span>
+            <span className="title-line">O No Pagás.</span>
           </h1>
-          <p className="fc-hero-claim">Hecha a medida y funcionando en menos de 30 días.</p>
+          <p className="fc-hero-claim">
+            Construimos aplicaciones web, dashboards, CRMs y sistemas a medida para{" "}
+            <strong>empresas que necesitan digitalizar procesos críticos</strong> en tiempo récord y con garantía real.
+          </p>
           <div className="hero-btns fc-hero-btns">
             <a href="#agenda" className="cta1" onClick={trackHeroCta}>
-              Quiero evaluar mi caso
+              Agendá una llamada gratis <span aria-hidden="true">↗</span>
+            </a>
+            <a href="#como-trabajamos" className="cta2">
+              Ver servicios
             </a>
           </div>
-          <p className="fc-hero-note">
-            En 20 minutos analizamos tu caso y te decimos si podemos resolverlo.
-          </p>
+          
         </section>
 
-        <section className="fc-calendar2 " id="agenda">
-          
+        <section className="fc-calendar fc-calendar-deposito" id="agenda">
+          <div className="small-label">AGENDA / 02</div>
           <p className="fc-section-subhead">Elegí el día y horario que te resulte más cómodo.</p>
           <CentralizeEmbed />
           <h2 className="fc-calendar-title">Hablemos de tu operación</h2>
@@ -243,7 +248,7 @@ export function FirstContactDepositoPage() {
             Contanos el problema. Nosotros analizamos cómo mejorarlo.
           </p>
           <a href="#agenda" className="big-button" onClick={trackConversion}>
-            Agendar consultoría gratis
+            Agendá una llamada gratis
             <span className="big-button-arrow" aria-hidden="true">↗</span>
           </a>
         </section>
