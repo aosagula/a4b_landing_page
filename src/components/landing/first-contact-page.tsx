@@ -114,6 +114,33 @@ const improveExamples = [
   }
 ];
 
+const successCases = [
+  {
+    org: "VACLOG",
+    title: "Trazabilidad de despachos",
+    result: "Visibilidad en tiempo real de cada despacho de importación/exportación, sin consultas manuales.",
+    image: "/images/casos-exito/vaclog-trazabilidad-despachos.png"
+  },
+  {
+    org: "Uranga Trading",
+    title: "Gestión de exportaciones",
+    result: "Trazabilidad completa de cada embarque agropecuario y respuestas más ágiles a clientes.",
+    image: "/images/casos-exito/uranga-trading-exportaciones.png"
+  },
+  {
+    org: "Las Margaritas",
+    title: "Gestión de logística",
+    result: "Mayor control de entregas y visibilidad del estado de cada pedido para todo el equipo.",
+    image: "/images/casos-exito/las-margaritas-logistica.png"
+  },
+  {
+    org: "Dasdach",
+    title: "Automatización de facturación",
+    result: "Horas administrativas liberadas y facturación en tiempo y forma, sin carga manual.",
+    image: "/images/casos-exito/dasdach-facturacion.png"
+  }
+];
+
 export function FirstContactPage() {
   return (
     <>
@@ -248,8 +275,33 @@ export function FirstContactPage() {
           </div>
         </section>
 
+        <section className="fc-success" id="casos">
+          <div className="small-label">CASOS DE EXITO / 05</div>
+          <h2 className="fc-section-title">Ya lo hicimos con otras empresas.</h2>
+          <div className="fc-success-grid">
+            {successCases.map((item) => (
+              <article className="fc-success-case" key={item.org}>
+                <div className="fc-success-media">
+                  <Image
+                    src={item.image}
+                    alt={`${item.org} · ${item.title}`}
+                    width={1200}
+                    height={600}
+                    sizes="(max-width: 720px) 90vw, (max-width: 1024px) 45vw, 22vw"
+                  />
+                </div>
+                <div className="fc-success-caption">
+                  <div className="fc-success-org">{item.org}</div>
+                  <h3 className="fc-success-title">{item.title}</h3>
+                  <p className="fc-success-result">{item.result}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className="final-cta fc-final-cta" id="contacto">
-          <div className="small-label final-label">CONTACTO / 05</div>
+          <div className="small-label final-label">CONTACTO / 06</div>
           <h2 className="fc-final-title">¿Hay algún proceso en tu empresa que te esté haciendo perder tiempo?</h2>
           <p className="fc-final-lede">
             No necesitás tener definida la solución.

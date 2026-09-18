@@ -11,6 +11,7 @@ import {
   type LandingContent,
   type Language
 } from "@/lib/content";
+import { SuccessCasesSection } from "./success-cases-section";
 
 type ComparisonSide = "manual" | "agentic";
 
@@ -450,40 +451,6 @@ function CaseSection({ content }: { content: LandingContent }) {
   );
 }
 
-function SuccessCasesSection({ content }: { content: LandingContent }) {
-  return (
-    <section className="cases" id="clientes">
-      <div className="cases-head">
-        <div className="small-label">{content.success.label}</div>
-        <h2>
-          {content.success.title.map((line) => (
-            <span className="title-line" key={line}>
-              {line}
-            </span>
-          ))}
-        </h2>
-      </div>
-      <div className="cases-grid">
-        {content.success.cases.map((item) => (
-          <article className="case-tile" key={item.org}>
-            <div className="case-tile-vertical">{item.vertical}</div>
-            <div className="case-tile-num">
-              {item.value}
-              <span className="case-tile-unit">{item.unit}</span>
-            </div>
-            <h3 className="case-tile-what">{item.what}</h3>
-            <p className="case-tile-quote">{item.quote}</p>
-            <div className="case-tile-org">
-              {item.org}
-              <br />
-              <span>{item.detail}</span>
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
 
 function ComparisonSection({
   content,

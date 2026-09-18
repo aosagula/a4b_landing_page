@@ -139,37 +139,99 @@ export const contentByLanguage = {
     },
     success: {
       label: "CASOS DE EXITO / 05",
-      title: ["Tres procesos", "que ya operan solos."],
+      title: ["Siete proyectos,", "un mismo enfoque."],
+      lede:
+        "En cada caso seguimos el mismo método: entender la operación, ordenar el proceso y recién después automatizar. Así, la tecnología acelera la eficiencia y no el desorden.",
+      fieldLabels: { challenge: "Desafío", solution: "Solución", result: "Resultado" },
       cases: [
         {
-          vertical: "Salud · Clínicas",
-          value: "-83",
-          unit: "%",
-          what: "Reserva, confirmación y reagenda de turnos.",
-          quote:
-            '"Pasamos de 28% de inasistencias a 5%. El agente confirma, reagenda y manda recordatorios sin que el equipo toque un teléfono."',
-          org: "Red Vital",
-          detail: "14 sucursales · 8 especialidades"
+          org: "VACLOG",
+          title: "Trazabilidad de despachos",
+          tags: "Comercio exterior · Trazabilidad",
+          image: "/images/casos-exito/vaclog-trazabilidad-despachos.png",
+          challenge:
+            "Las operaciones de comercio exterior se tramitan en distintos organismos, agentes logísticos y aduanas, cada uno con sus propios sistemas.",
+          solution:
+            "Plataforma web que centraliza cada despacho, su documentación y sus estados, con historial completo y alertas automáticas.",
+          result:
+            "Visibilidad en tiempo real de todos los despachos, menos consultas manuales y detección temprana de demoras.",
+          detail: "Aplicación web · Integraciones"
         },
         {
-          vertical: "Soporte · Voz",
-          value: "3.4",
-          unit: "x",
-          what: "Atención telefónica y derivación inteligente.",
-          quote:
-            '"El agente atiende la llamada, identifica el motivo y deriva al humano correcto con todo el contexto. Los tiempos muertos se acabaron."',
-          org: "Salus Seguros",
-          detail: "CDMX · 740 llamadas/día"
+          org: "VACLOG",
+          title: "Workspace de clientes",
+          tags: "Gestión operativa · Portal de clientes",
+          image: "/images/casos-exito/vaclog-workspace-clientes.png",
+          challenge:
+            "Ventas, compras, remitos y recepciones se gestionaban en herramientas separadas, con datos duplicados y difíciles de consultar.",
+          solution:
+            "Un espacio de trabajo único para administrar ventas, compras, remitos y recepciones de cada cliente desde un mismo lugar.",
+          result:
+            "Información unificada, menos carga duplicada y acceso directo al estado de cada operación.",
+          detail: "Aplicación web · Portal de clientes"
         },
         {
-          vertical: "Tickets · E-commerce",
-          value: "91",
-          unit: "%",
-          what: "Resolución de tickets sin escalar a humanos.",
-          quote:
-            '"9 de cada 10 tickets se resuelven antes del primer contacto humano. Mi equipo se enfoca en los casos que sí necesitan criterio."',
-          org: "Mercato+",
-          detail: "E-commerce LATAM · 4.8k tickets/día"
+          org: "Uranga Trading",
+          title: "Gestión de exportaciones",
+          tags: "Agroexportación · Seguimiento de embarques",
+          image: "/images/casos-exito/uranga-trading-exportaciones.png",
+          challenge:
+            "Cada exportación agropecuaria implicaba contratos, documentación y embarques dispersos entre mails, planillas y documentos compartidos.",
+          solution:
+            "Portal que centraliza la gestión comercial, la documentación de exportación y el seguimiento de cada embarque, para uso interno y de compradores.",
+          result:
+            "Trazabilidad completa de cada operación, respuestas más ágiles a clientes y menos riesgo de errores documentales.",
+          detail: "Portal web · Agroexportación"
+        },
+        {
+          org: "Las Margaritas",
+          title: "Gestión de logística",
+          tags: "Logística · Tablero de gestión",
+          image: "/images/casos-exito/las-margaritas-logistica.png",
+          challenge:
+            "La planificación de entregas y el seguimiento de la distribución dependían de coordinación manual y comunicación informal.",
+          solution:
+            "Sistema para planificar, asignar y seguir pedidos y entregas, con estados actualizados para todo el equipo.",
+          result:
+            "Mayor control de la operación, menos demoras por falta de información y visibilidad del estado de cada entrega.",
+          detail: "Aplicación web · Tablero de gestión"
+        },
+        {
+          org: "Dasdach",
+          title: "Automatización de facturación",
+          tags: "Automatización · Integración de sistemas",
+          image: "/images/casos-exito/dasdach-facturacion.png",
+          challenge:
+            "La emisión de facturas requería carga manual y repetitiva de datos, con riesgo de errores en importes e impuestos.",
+          solution:
+            "El circuito se automatizó de punta a punta: los datos se toman del sistema de origen, se validan y un robot emite y envía los comprobantes sin carga manual.",
+          result: "Horas administrativas liberadas, menos errores y facturación en tiempo y forma.",
+          detail: "Automatización · RPA"
+        },
+        {
+          org: "Coop. Tabacalera Jujuy",
+          title: "Trazabilidad del Tabaco",
+          tags: "Trazabilidad · Blockchain",
+          image: "/images/casos-exito/tabacalera-jujuy-trazabilidad.png",
+          challenge:
+            "Los fardos de tabaco de calidad eran falsificados en distintas etapas del proceso logístico.",
+          solution:
+            "Identificación de cada fardo con una etiqueta RFID e incorporación de esa trazabilidad a una red Blockchain.",
+          result:
+            "Trazabilidad verificable de cada fardo y menor riesgo de falsificación en toda la cadena.",
+          detail: "RFID · Blockchain"
+        },
+        {
+          org: "VACLOG",
+          title: "Seguimiento de Gestores",
+          tags: "Trazabilidad · Mobile",
+          image: "/images/casos-exito/vaclog-seguimiento-gestores.png",
+          challenge:
+            "Dificultad para controlar las actividades de los gestores y sus comprobantes de viáticos y viajes.",
+          solution:
+            "Aplicación mobile instalada en los teléfonos de los gestores, que muestra la trazabilidad de sus trámites.",
+          result: "Menos tickets falsos y mayor control de los viáticos.",
+          detail: "Aplicación mobile · Trazabilidad"
         }
       ]
     },
@@ -317,37 +379,99 @@ export const contentByLanguage = {
     },
     success: {
       label: "SUCCESS CASES / 05",
-      title: ["Three processes", "already running on their own."],
+      title: ["Seven projects,", "one same approach."],
+      lede:
+        "In every case we follow the same method: understand the operation, put the process in order, and only then automate. That way technology speeds up efficiency instead of the mess.",
+      fieldLabels: { challenge: "Challenge", solution: "Solution", result: "Result" },
       cases: [
         {
-          vertical: "Healthcare · Clinics",
-          value: "-83",
-          unit: "%",
-          what: "Appointment booking, confirmation, and rescheduling.",
-          quote:
-            '"We went from 28% no-shows to 5%. The agent confirms, reschedules, and sends reminders without the team touching a phone."',
-          org: "Red Vital",
-          detail: "14 branches · 8 specialties"
+          org: "VACLOG",
+          title: "Import/export dispatch tracking",
+          tags: "Foreign trade · Traceability",
+          image: "/images/casos-exito/vaclog-trazabilidad-despachos.png",
+          challenge:
+            "Foreign trade operations run through different government agencies, logistics agents, and customs offices, each with its own systems.",
+          solution:
+            "A web platform that centralizes every dispatch, its documentation, and its status, with full history and automatic alerts.",
+          result:
+            "Real-time visibility into every dispatch, fewer manual inquiries, and early detection of delays.",
+          detail: "Web app · Integrations"
         },
         {
-          vertical: "Support · Voice",
-          value: "3.4",
-          unit: "x",
-          what: "Phone support and intelligent routing.",
-          quote:
-            '"The agent takes the call, identifies the reason, and routes it to the right human with full context. Dead time is gone."',
-          org: "Salus Seguros",
-          detail: "Mexico City · 740 calls/day"
+          org: "VACLOG",
+          title: "Client workspace",
+          tags: "Operations management · Client portal",
+          image: "/images/casos-exito/vaclog-workspace-clientes.png",
+          challenge:
+            "Sales, purchases, delivery notes, and receipts were managed in separate tools, with duplicated and hard-to-check data.",
+          solution:
+            "A single workspace to manage sales, purchases, delivery notes, and receipts for each client in one place.",
+          result:
+            "Unified information, less duplicated workload, and direct access to the status of every operation.",
+          detail: "Web app · Client portal"
         },
         {
-          vertical: "Tickets · E-commerce",
-          value: "91",
-          unit: "%",
-          what: "Ticket resolution without human escalation.",
-          quote:
-            '"9 out of 10 tickets are solved before the first human touch. My team focuses on the cases that truly require judgment."',
-          org: "Mercato+",
-          detail: "LATAM e-commerce · 4.8k tickets/day"
+          org: "Uranga Trading",
+          title: "Export management",
+          tags: "Agro-export · Shipment tracking",
+          image: "/images/casos-exito/uranga-trading-exportaciones.png",
+          challenge:
+            "Every agricultural export involved contracts, documentation, and shipments scattered across emails, spreadsheets, and shared documents.",
+          solution:
+            "A portal that centralizes commercial management, export documentation, and shipment tracking, for internal use and for buyers.",
+          result:
+            "Full traceability of every operation, faster responses to clients, and less risk of documentation errors.",
+          detail: "Web portal · Agro-export"
+        },
+        {
+          org: "Las Margaritas",
+          title: "Logistics management",
+          tags: "Logistics · Management dashboard",
+          image: "/images/casos-exito/las-margaritas-logistica.png",
+          challenge:
+            "Delivery planning and distribution tracking depended on manual coordination and informal communication.",
+          solution:
+            "A system to plan, assign, and track orders and deliveries, with statuses updated for the whole team.",
+          result:
+            "Greater control of the operation, fewer delays from lack of information, and visibility into the status of every delivery.",
+          detail: "Web app · Management dashboard"
+        },
+        {
+          org: "Dasdach",
+          title: "Billing automation",
+          tags: "Automation · Systems integration",
+          image: "/images/casos-exito/dasdach-facturacion.png",
+          challenge:
+            "Issuing invoices required manual, repetitive data entry, with risk of errors in amounts and taxes.",
+          solution:
+            "The whole circuit was automated end to end: data is pulled from the source system, validated, and a bot issues and sends the invoices with no manual entry.",
+          result: "Administrative hours freed up, fewer errors, and on-time invoicing.",
+          detail: "Automation · RPA"
+        },
+        {
+          org: "Coop. Tabacalera Jujuy",
+          title: "Tobacco traceability",
+          tags: "Traceability · Blockchain",
+          image: "/images/casos-exito/tabacalera-jujuy-trazabilidad.png",
+          challenge:
+            "High-quality tobacco bales were being counterfeited at different stages of the logistics process.",
+          solution:
+            "Each bale is identified with an RFID tag, and that traceability is added to a blockchain network.",
+          result:
+            "Verifiable traceability for every bale and lower risk of counterfeiting across the whole chain.",
+          detail: "RFID · Blockchain"
+        },
+        {
+          org: "VACLOG",
+          title: "Field agent tracking",
+          tags: "Traceability · Mobile",
+          image: "/images/casos-exito/vaclog-seguimiento-gestores.png",
+          challenge:
+            "Difficulty controlling field agents' activities and their travel expense receipts.",
+          solution:
+            "A mobile app installed on agents' phones that shows the traceability of their assignments.",
+          result: "Fewer false expense claims and greater control over travel expenses.",
+          detail: "Mobile app · Traceability"
         }
       ]
     },
