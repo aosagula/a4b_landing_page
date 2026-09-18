@@ -44,10 +44,12 @@ function CaseTile({ content, item }: { content: LandingContent; item: LandingCon
 
 export function SuccessCasesSection({
   content,
-  sectionId = "clientes"
+  sectionId = "clientes",
+  label
 }: {
   content: LandingContent;
   sectionId?: string;
+  label?: string;
 }) {
   const remainder = content.success.cases.length % SUCCESS_CASES_COLUMNS;
   const gridCases = remainder === 0 ? content.success.cases : content.success.cases.slice(0, -remainder);
@@ -57,7 +59,7 @@ export function SuccessCasesSection({
     <section className="cases" id={sectionId}>
       <div className="cases-head">
         <div>
-          <div className="small-label">{content.success.label}</div>
+          <div className="small-label">{label ?? content.success.label}</div>
           <h2>
             {content.success.title.map((line) => (
               <span className="title-line" key={line}>

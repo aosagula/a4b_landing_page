@@ -173,8 +173,10 @@ export function FirstContactDepositoPage() {
           </p>
         </section>
 
+        <SuccessCasesSection content={contentByLanguage.es} sectionId="casos" label="CASOS DE EXITO / 03" />
+
         <section className="fc-work" id="como-trabajamos">
-          <div className="small-label">CÓMO TRABAJAMOS / 03</div>
+          <div className="small-label">CÓMO TRABAJAMOS / 04</div>
           <h2 className="fc-section-title">No empezamos por la tecnología. Empezamos por tu operación.</h2>
           <p className="lede fc-lede">Cada depósito y cada distribuidora trabaja de una manera diferente.</p>
           <p className="lede fc-lede">Por eso no llegamos recomendando un ERP nuevo bajo el brazo.</p>
@@ -194,7 +196,7 @@ export function FirstContactDepositoPage() {
         </section>
 
         <section className="fc-improve">
-          <div className="small-label">QUÉ PODEMOS MEJORAR / 04</div>
+          <div className="small-label">QUÉ PODEMOS MEJORAR / 05</div>
           <h2 className="fc-section-title">Hay muchos procesos de depósito que pueden trabajar mejor.</h2>
           <div className="fc-improve-grid">
             {improveItems.map((item) => (
@@ -205,8 +207,6 @@ export function FirstContactDepositoPage() {
             ))}
           </div>
         </section>
-
-        <SuccessCasesSection content={contentByLanguage.es} sectionId="casos" />
 
         <section className="final-cta fc-final-cta" id="contacto">
           <div className="small-label final-label">CONTACTO / 06</div>
