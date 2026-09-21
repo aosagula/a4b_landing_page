@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
@@ -88,6 +88,27 @@ const improveItems = [
 ];
 
 export function FirstContactDepositoPage() {
+  const [showFabs, setShowFabs] = useState(false);
+  const casosSectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = casosSectionRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowFabs(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <Script id="meta-pixel-first-contact-deposito" strategy="afterInteractive">
@@ -173,7 +194,9 @@ export function FirstContactDepositoPage() {
           </p>
         </section>
 
-        <SuccessCasesSection content={contentByLanguage.es} sectionId="casos" label="CASOS DE EXITO / 03" />
+        <div ref={casosSectionRef}>
+          <SuccessCasesSection content={contentByLanguage.es} sectionId="casos" label="CASOS DE EXITO / 03" />
+        </div>
 
         <section className="fc-work" id="como-trabajamos">
           <div className="small-label">CÓMO TRABAJAMOS / 04</div>
@@ -255,7 +278,13 @@ export function FirstContactDepositoPage() {
         </div>
       </footer>
 
-      <a href="#agenda" className="fc-agenda-fab" aria-label="Agendar una llamada">
+      <a
+        href="#agenda"
+        className={`fc-agenda-fab${showFabs ? " is-visible" : ""}`}
+        aria-label="Agendar una llamada"
+        aria-hidden={!showFabs}
+        tabIndex={showFabs ? 0 : -1}
+      >
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
           <path d="M7 2a1 1 0 0 1 1 1v1h8V3a1 1 0 1 1 2 0v1h1a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1V3a1 1 0 0 1 1-1zM4 10v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V10H4zm3 3h4v4H7v-4z" />
         </svg>
@@ -263,11 +292,13 @@ export function FirstContactDepositoPage() {
 
       <a
         href={WHATSAPP_URL}
-        className="fc-whatsapp-fab"
+        className={`fc-whatsapp-fab${showFabs ? " is-visible" : ""}`}
         target="_blank"
         rel="noreferrer"
         onClick={trackConversion}
         aria-label="Contactar por WhatsApp"
+        aria-hidden={!showFabs}
+        tabIndex={showFabs ? 0 : -1}
       >
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />

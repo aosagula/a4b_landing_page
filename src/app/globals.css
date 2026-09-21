@@ -1923,11 +1923,20 @@ footer.foot {
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  pointer-events: none;
   transition:
     background 0.2s ease,
     transform 0.2s ease,
-    box-shadow 0.2s ease;
+    box-shadow 0.2s ease,
+    opacity 0.35s ease;
   text-decoration: none;
+}
+
+.fc-whatsapp-fab.is-visible,
+.fc-agenda-fab.is-visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .fc-whatsapp-fab svg,
