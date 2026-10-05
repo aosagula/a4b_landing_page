@@ -89,7 +89,9 @@ const improveItems = [
 
 export function FirstContactDepositoPage() {
   const [showFabs, setShowFabs] = useState(false);
+  const [showWhatsappNotice, setShowWhatsappNotice] = useState(false);
   const casosSectionRef = useRef<HTMLDivElement>(null);
+  const whatsappNoticeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const el = casosSectionRef.current;
@@ -108,6 +110,19 @@ export function FirstContactDepositoPage() {
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    return () => {
+      if (whatsappNoticeTimeout.current) clearTimeout(whatsappNoticeTimeout.current);
+    };
+  }, []);
+
+  function handleWhatsappFabClick() {
+    trackConversion();
+    setShowWhatsappNotice(true);
+    if (whatsappNoticeTimeout.current) clearTimeout(whatsappNoticeTimeout.current);
+    whatsappNoticeTimeout.current = setTimeout(() => setShowWhatsappNotice(false), 5000);
+  }
 
   return (
     <>
@@ -291,12 +306,10 @@ export function FirstContactDepositoPage() {
       </a>
 
       <a
-        href={WHATSAPP_URL}
+        href="#agenda"
         className={`fc-whatsapp-fab${showFabs ? " is-visible" : ""}`}
-        target="_blank"
-        rel="noreferrer"
-        onClick={trackConversion}
-        aria-label="Contactar por WhatsApp"
+        onClick={handleWhatsappFabClick}
+        aria-label="Agendá una llamada. Luego te contactamos por WhatsApp"
         aria-hidden={!showFabs}
         tabIndex={showFabs ? 0 : -1}
       >
@@ -305,6 +318,12 @@ export function FirstContactDepositoPage() {
           <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.845L.057 23.888a.5.5 0 0 0 .612.612l6.043-1.471A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.808 9.808 0 0 1-5.188-1.479l-.372-.22-3.85.937.955-3.775-.242-.389A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" />
         </svg>
       </a>
+
+      {showWhatsappNotice && (
+        <div className="fc-whatsapp-notice" role="status">
+          Agendá tu llamada. Luego de la agenda te contactaremos por WhatsApp.
+        </div>
+      )}
     </>
   );
 }
