@@ -3,7 +3,6 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import {
-  DEMOS_URL,
   INSTAGRAM_URL,
   WHATSAPP_URL,
   contentByLanguage,
@@ -129,7 +128,7 @@ export function LandingPage() {
                   {content.hero.secondaryCta}
                   <span aria-hidden="true"> ↘</span>
                 </a>
-                <a href={DEMOS_URL} className="cta-demo" target="_blank" rel="noreferrer">
+                <a href="/first_contact_deposito#agenda" className="cta-demo">
                   {content.hero.demoCta}
                   <span aria-hidden="true"> -&gt;</span>
                 </a>
