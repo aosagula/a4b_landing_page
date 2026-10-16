@@ -15,9 +15,9 @@ declare global {
   }
 }
 
+// El Lead de Meta lo registra el calendario de centralize al confirmar la agenda.
 function trackConversion() {
   window.gtag_report_conversion?.();
-  window.fbq?.("track", "Lead");
 }
 
 // Embed del calendario de centralize.es. form_embed.js escucha mensajes del iframe

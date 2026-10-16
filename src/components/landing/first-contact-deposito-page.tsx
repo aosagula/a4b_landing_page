@@ -19,9 +19,9 @@ declare global {
   }
 }
 
+// El Lead de Meta lo registra el calendario de centralize al confirmar la agenda.
 function trackConversion() {
   window.gtag_report_conversion?.();
-  window.fbq?.("track", "Lead");
 }
 
 function trackHeroCta() {
