@@ -3,15 +3,11 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
-import { WHATSAPP_URL, INSTAGRAM_URL } from "@/lib/content";
-
-const FIRST_CONTACT_META_PIXEL_ID = "1655722448999268";
+import { INSTAGRAM_URL } from "@/lib/content";
 
 declare global {
   interface Window {
     gtag_report_conversion?: (url?: string) => void;
-    fbq?: (...args: unknown[]) => void;
   }
 }
 
@@ -144,31 +140,6 @@ const successCases = [
 export function FirstContactPage() {
   return (
     <>
-      <Script id="meta-pixel-first-contact" strategy="afterInteractive">
-        {`
-          !function(f,b,e,v,n,t,s)
-          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-          n.queue=[];t=b.createElement(e);t.async=!0;
-          t.src=v;s=b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t,s)}(window, document,'script',
-          'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '${FIRST_CONTACT_META_PIXEL_ID}');
-          fbq('trackSingle', '${FIRST_CONTACT_META_PIXEL_ID}', 'PageView');
-        `}
-      </Script>
-      <noscript>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          height="1"
-          width="1"
-          style={{ display: "none" }}
-          src={`https://www.facebook.com/tr?id=${FIRST_CONTACT_META_PIXEL_ID}&ev=PageView&noscript=1`}
-          alt=""
-        />
-      </noscript>
-
       <header className="nav fc-nav">
         <Link className="logo" href="/" aria-label="agentic4biz inicio">
           <Image src="/logotipo_transparente.png" alt="Agentic4Biz" width={2172} height={724} priority />
@@ -324,9 +295,6 @@ export function FirstContactPage() {
           <div>
             <div className="footer-h">Contacto</div>
             <div className="footer-links">
-              <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" onClick={trackConversion}>
-                WhatsApp · +54 11 6532 2243
-              </a>
               <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
                 Instagram · @agentic4biz
               </a>
@@ -377,9 +345,6 @@ function CentralizeEmbed() {
           Pegá el código de embed en <code>CENTRALIZE_EMBED_HTML</code> (
           <code>src/components/landing/first-contact-page.tsx</code>) para activarlo.
         </p>
-        <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" onClick={trackConversion} className="fc-fallback-link">
-          Mientras tanto, escribinos por WhatsApp →
-        </a>
       </div>
     );
   }

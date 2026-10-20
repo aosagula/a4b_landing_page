@@ -1911,7 +1911,6 @@ footer.foot {
   }
 }
 
-.fc-whatsapp-fab,
 .fc-agenda-fab {
   position: fixed;
   right: 24px;
@@ -1933,19 +1932,16 @@ footer.foot {
   text-decoration: none;
 }
 
-.fc-whatsapp-fab.is-visible,
 .fc-agenda-fab.is-visible {
   opacity: 1;
   pointer-events: auto;
 }
 
-.fc-whatsapp-fab svg,
 .fc-agenda-fab svg {
   position: relative;
   z-index: 1;
 }
 
-.fc-whatsapp-fab::before,
 .fc-agenda-fab::before {
   content: "";
   position: absolute;
@@ -1955,8 +1951,6 @@ footer.foot {
   animation: fab-halo 2.2s ease-out infinite;
 }
 
-.fc-whatsapp-fab:hover::before,
-.fc-whatsapp-fab:focus-visible::before,
 .fc-agenda-fab:hover::before,
 .fc-agenda-fab:focus-visible::before {
   animation-play-state: paused;
@@ -1979,32 +1973,8 @@ footer.foot {
   }
 }
 
-.fc-whatsapp-fab {
-  bottom: 24px;
-  background: #25d366;
-  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.45);
-}
-
-.fc-whatsapp-fab::before {
-  background: rgba(37, 211, 102, 0.6);
-}
-
-.fc-whatsapp-fab svg {
-  width: 30px;
-  height: 30px;
-  fill: #fff;
-}
-
-.fc-whatsapp-fab:hover,
-.fc-whatsapp-fab:focus-visible {
-  background: #1ebe5d;
-  transform: scale(1.08);
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.55);
-  outline: 0;
-}
-
 .fc-agenda-fab {
-  bottom: 92px;
+  bottom: 24px;
   background: var(--accent);
   box-shadow: 0 4px 14px rgba(29, 78, 216, 0.45);
 }
@@ -2029,24 +1999,11 @@ footer.foot {
 }
 
 @media (max-width: 640px) {
-  .fc-whatsapp-fab,
   .fc-agenda-fab {
     right: 12px;
+    bottom: 12px;
     width: 50px;
     height: 50px;
-  }
-
-  .fc-whatsapp-fab {
-    bottom: 12px;
-  }
-
-  .fc-agenda-fab {
-    bottom: 74px;
-  }
-
-  .fc-whatsapp-fab svg {
-    width: 26px;
-    height: 26px;
   }
 
   .fc-agenda-fab svg {
