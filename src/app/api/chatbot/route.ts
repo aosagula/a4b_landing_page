@@ -2,8 +2,21 @@ import { NextResponse } from "next/server";
 
 const N8N_WEBHOOK_URL = process.env.N8N_CHATBOT_WEBHOOK_URL;
 const N8N_API_KEY = process.env.N8N_CHATBOT_API_KEY;
+const MAX_MESSAGE_LENGTH = 2000;
+const ALLOWED_ORIGINS = new Set([
+  "https://agentic4biz.com",
+  "https://www.agentic4biz.com",
+  "http://localhost:3000",
+  "http://localhost:3001"
+]);
 
 export async function POST(request: Request) {
+  // Sin Origin se deja pasar (clientes legítimos que no lo envían); el rate limit lo hace Cloudflare.
+  const origin = request.headers.get("origin");
+  if (origin && !ALLOWED_ORIGINS.has(origin)) {
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  }
+
   if (!N8N_WEBHOOK_URL) {
     return NextResponse.json({ error: "Missing N8N_CHATBOT_WEBHOOK_URL" }, { status: 500 });
   }
@@ -20,6 +33,10 @@ export async function POST(request: Request) {
 
   if (!message) {
     return NextResponse.json({ error: "Message is required" }, { status: 400 });
+  }
+
+  if (message.length > MAX_MESSAGE_LENGTH) {
+    return NextResponse.json({ error: "Message too long" }, { status: 400 });
   }
 
   let upstream: Response;

@@ -1,0 +1,4 @@
+Contact: mailto:alejandro.sagula@gmail.com
+Preferred-Languages: es, en
+Canonical: https://agentic4biz.com/.well-known/security.txt
+Expires: 2027-10-22T00:00:00.000Z
