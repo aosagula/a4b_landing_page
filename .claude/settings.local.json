@@ -1,4 +1,19 @@
 {
+
+
+  "env": {
+    "AGENTOFFICE_API_KEY": "ao_live_OkKrD7LTaLjsXsiD9GYXOmxmMLZLdbcOkSVWXJyK0Uw",
+    "AGENTOFFICE_URL": "http://localhost:8001"
+  },
+  "hooks": {
+    "SessionStart": [{ "hooks": [{ "type": "command", "command": "python -m agentoffice.claude_code" }] }],
+    "UserPromptSubmit": [{ "hooks": [{ "type": "command", "command": "python -m agentoffice.claude_code" }] }],
+    "PreToolUse": [{ "matcher": "Bash", "hooks": [{ "type": "command", "command": "python -m agentoffice.claude_code", "timeout": 600 }] }],
+    "PostToolUse": [{ "matcher": "*", "hooks": [{ "type": "command", "command": "python -m agentoffice.claude_code" }] }],
+    "Notification": [{ "hooks": [{ "type": "command", "command": "python -m agentoffice.claude_code" }] }],
+    "Stop": [{ "hooks": [{ "type": "command", "command": "python -m agentoffice.claude_code" }] }],
+    "SessionEnd": [{ "hooks": [{ "type": "command", "command": "python -m agentoffice.claude_code" }] }]
+  },
   "permissions": {
     "allow": [
       "Bash(pnpm --version)",

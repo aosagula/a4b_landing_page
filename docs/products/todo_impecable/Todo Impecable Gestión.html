@@ -1,0 +1,681 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Todo Impecable Gestión</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: a sales brochure in folded panels — a deep-blue cover band, then alternating text / device panels, closing on a demo call. */
+:root {
+  --bg: #F3F7F9;
+  --surface: #FFFFFF;
+  --fg: #172229;
+  --muted: #4C5D66;
+  --line: #DCE4E8;
+  --brand: #146198;
+  --accent-text: #1B7F35;
+  --cta-bg: #1B7F35;
+  --cta-fg: #FFFFFF;
+  --ghost-border: #146198;
+  --ghost-fg: #146198;
+  --band: #0E3F63;
+  --on-band: #FFFFFF;
+  --on-band-muted: #C0EBFC;
+  --chip-bg: #E5EEF5;
+  --chip-fg: #14456B;
+  --green: #53D565;
+  --shadow: 0 24px 60px -24px rgba(14, 63, 99, 0.35);
+
+  /* Product UI inside the device frames keeps the app's own light look in both themes */
+  --ui-bg: #F2F6F8;
+  --ui-card: #FFFFFF;
+  --ui-side: #374851;
+  --ui-blue: #146198;
+  --ui-ink: #1F2A30;
+  --ui-muted: #50616A;
+  --ui-line: #E5EBEE;
+  --ui-ok-bg: #DDF7E1; --ui-ok: #14612A;
+  --ui-warn-bg: #FDEBD8; --ui-warn: #8A3E06;
+  --ui-bad-bg: #F9D9D6; --ui-bad: #8E1B12;
+  --ui-map: #E4ECEF;
+  --ui-green: #1B7F35;
+  --ui-white: #FFFFFF;
+  --frame: #1B262D;
+
+  --display: 'Barlow Condensed', 'Arial Narrow', 'Roboto Condensed', sans-serif;
+  --body: 'Barlow', 'Segoe UI', system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F171C; --surface: #172229; --fg: #E8EEF1; --muted: #A6B5BD; --line: #27353D;
+    --brand: #6FB5E8; --accent-text: #6BE07B; --cta-bg: #53D565; --cta-fg: #0B1F12;
+    --ghost-border: #6FB5E8; --ghost-fg: #9FD0F2; --band: #0B2A40; --on-band: #FFFFFF; --on-band-muted: #A9DDF5;
+    --chip-bg: #1E3446; --chip-fg: #B9DCF3; --shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.7); --frame: #05090B;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F171C; --surface: #172229; --fg: #E8EEF1; --muted: #A6B5BD; --line: #27353D;
+  --brand: #6FB5E8; --accent-text: #6BE07B; --cta-bg: #53D565; --cta-fg: #0B1F12;
+  --ghost-border: #6FB5E8; --ghost-fg: #9FD0F2; --band: #0B2A40; --on-band: #FFFFFF; --on-band-muted: #A9DDF5;
+  --chip-bg: #1E3446; --chip-fg: #B9DCF3; --shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.7); --frame: #05090B;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 17px; line-height: 1.55; }
+h1, h2, h3 { font-family: var(--display); text-transform: uppercase; line-height: 0.98; margin: 0; text-wrap: balance; letter-spacing: 0.005em; }
+p { margin: 0; }
+a { color: var(--brand); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
+
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.eyebrow { font-family: var(--body); font-weight: 700; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-text); }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 22px; border-radius: 12px; font-family: var(--display); font-weight: 700; font-size: 19px; text-transform: uppercase; letter-spacing: 0.03em; text-decoration: none; border: 2px solid transparent; cursor: pointer; }
+.btn-cta { background: var(--cta-bg); color: var(--cta-fg); }
+.btn-ghost { border-color: var(--ghost-border); color: var(--ghost-fg); background: transparent; }
+.btn-onband { border-color: var(--on-band-muted); color: var(--on-band); background: transparent; }
+
+/* Brand mark */
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+.brand-name { display: flex; flex-direction: column; line-height: 0.92; }
+.brand-name b { font-family: var(--display); font-weight: 800; font-size: 22px; letter-spacing: 0.01em; }
+.brand-name span { font-family: var(--display); font-weight: 600; font-size: 11px; letter-spacing: 0.32em; color: var(--on-band-muted); }
+
+/* Cover band */
+.cover { background: var(--band); color: var(--on-band); }
+.cover .wrap { padding-block: 22px 72px; display: flex; flex-direction: column; gap: 48px; }
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.topbar .btn { min-height: 44px; font-size: 16px; }
+.hero { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 48px; align-items: center; }
+.hero-copy { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+.hero-copy .eyebrow { color: var(--green); }
+.hero h1 { font-weight: 800; font-size: clamp(46px, 7vw, 86px); }
+.hero h1 em { font-style: normal; color: var(--green); }
+.hero-copy p { font-size: 19px; color: var(--on-band-muted); max-width: 34em; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero-proof { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 15px; color: var(--on-band-muted); }
+.hero-proof span { display: inline-flex; align-items: center; gap: 6px; }
+.hero-visual { position: relative; min-width: 0; padding-bottom: 36px; }
+
+/* Device frames */
+.laptop { background: var(--frame); border-radius: 16px 16px 6px 6px; padding: 10px; box-shadow: var(--shadow); max-width: 100%; }
+.laptop .screen { aspect-ratio: 16 / 10.4; border-radius: 6px; overflow: hidden; background: var(--ui-bg); display: grid; grid-template-columns: 22% 1fr; color: var(--ui-ink); font-family: var(--body); }
+.phone { width: 230px; max-width: 100%; background: var(--frame); border-radius: 34px; padding: 9px; box-shadow: var(--shadow); }
+.phone .screen { border-radius: 26px; overflow: hidden; background: var(--ui-bg); color: var(--ui-ink); aspect-ratio: 9 / 19.2; display: flex; flex-direction: column; font-family: var(--body); }
+.hero-visual .phone { position: absolute; right: -6px; bottom: 0; width: 170px; }
+
+/* Mock UI pieces (scaled-down product screens) */
+.m-side { background: var(--ui-side); color: var(--ui-white); padding: 10px 7px; display: flex; flex-direction: column; gap: 4px; font-size: 9px; }
+.m-side .m-logo { display: flex; align-items: center; gap: 5px; font-family: var(--display); font-weight: 800; font-size: 10px; line-height: 1; margin-bottom: 8px; }
+.m-nav { padding: 5px 6px; border-radius: 5px; color: #DDE5E9; }
+.m-nav.on { background: var(--ui-blue); color: var(--ui-white); font-weight: 600; }
+.m-main { padding: 10px 12px; display: flex; flex-direction: column; gap: 8px; min-width: 0; font-size: 9px; }
+.m-title { font-family: var(--display); font-weight: 800; font-size: 15px; text-transform: uppercase; color: #374851; line-height: 1; }
+.m-sub { font-size: 8px; color: var(--ui-muted); }
+.m-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.m-kpi { background: var(--ui-card); border-radius: 6px; padding: 6px 7px; }
+.m-kpi small { display: block; font-size: 7px; color: var(--ui-muted); font-weight: 600; }
+.m-kpi b { font-family: var(--display); font-size: 17px; color: var(--ui-blue); line-height: 1.1; }
+.m-row2 { display: grid; grid-template-columns: 1.6fr 1fr; gap: 6px; min-height: 0; }
+.m-card { background: var(--ui-card); border-radius: 6px; padding: 7px 8px; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.m-card h4 { margin: 0; font-family: var(--display); font-size: 10px; text-transform: uppercase; color: #374851; }
+.m-line { display: flex; justify-content: space-between; align-items: center; gap: 6px; border-top: 1px solid var(--ui-line); padding-top: 4px; font-size: 8px; }
+.pill { border-radius: 4px; padding: 1px 5px; font-weight: 700; font-size: 7px; white-space: nowrap; }
+.ok { background: var(--ui-ok-bg); color: var(--ui-ok); }
+.warn { background: var(--ui-warn-bg); color: var(--ui-warn); }
+.bad { background: var(--ui-bad-bg); color: var(--ui-bad); }
+.info { background: #E5EEF5; color: #14456B; }
+.m-alert { border-radius: 5px; padding: 5px 6px; font-size: 8px; line-height: 1.3; }
+.m-alert.bad { font-weight: 400; } .m-alert.warn { font-weight: 400; }
+
+/* Phone mock pieces */
+.p-head { background: var(--ui-blue); color: var(--ui-white); padding: 18px 12px 12px; display: flex; flex-direction: column; gap: 2px; }
+.p-head small { font-size: 9px; color: #C0EBFC; }
+.p-head b { font-family: var(--display); font-size: 17px; text-transform: uppercase; line-height: 1; }
+.p-body { padding: 8px; display: flex; flex-direction: column; gap: 7px; flex: 1; font-size: 9px; }
+.p-card { background: var(--ui-card); border-radius: 9px; padding: 8px 9px; display: flex; flex-direction: column; gap: 3px; }
+.p-card strong { font-size: 10px; }
+.p-muted { color: var(--ui-muted); font-size: 8.5px; }
+.p-map { height: 78px; border-radius: 9px; overflow: hidden; background: var(--ui-map); }
+.p-map svg { display: block; width: 100%; height: 100%; }
+.p-okbar { background: var(--ui-ok-bg); color: var(--ui-ok); border-radius: 7px; padding: 5px 8px; font-weight: 700; font-size: 9px; }
+.p-btn { background: var(--ui-green); color: var(--ui-white); border-radius: 9px; padding: 9px; text-align: center; font-family: var(--display); font-weight: 800; font-size: 13px; text-transform: uppercase; }
+.p-btn.blue { background: var(--ui-blue); }
+.p-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.p-tile { background: var(--ui-card); border-radius: 9px; padding: 8px; font-weight: 700; font-size: 9.5px; display: flex; flex-direction: column; gap: 5px; }
+.p-tile i { width: 18px; height: 18px; border-radius: 5px; background: #E5EEF5; display: block; }
+.p-step { display: flex; gap: 7px; align-items: flex-start; font-size: 9px; }
+.p-dot { width: 11px; height: 11px; border-radius: 50%; background: var(--ui-green); flex-shrink: 0; margin-top: 1px; }
+.p-dot.now { background: var(--ui-white); border: 2.5px solid var(--ui-green); }
+.p-dot.next { background: var(--ui-white); border: 1.5px solid #C9D3D8; }
+.p-bar { height: 5px; border-radius: 3px; background: #1D72AF; margin-top: 5px; }
+.p-bar span { display: block; height: 5px; width: 60%; border-radius: 3px; background: var(--green); }
+
+/* Sections */
+section.block { padding-block: 88px; }
+.block-head { display: flex; flex-direction: column; gap: 14px; max-width: 760px; margin-bottom: 44px; }
+.block-head h2 { font-size: clamp(36px, 5vw, 56px); font-weight: 800; }
+.block-head p { color: var(--muted); font-size: 19px; }
+
+/* Problem → answer */
+.pains { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 18px; }
+.pain { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.pain .q { font-family: var(--display); font-weight: 700; font-size: 25px; text-transform: uppercase; line-height: 1.02; }
+.pain .now { color: var(--muted); font-size: 16px; }
+.pain .fix { margin-top: auto; border-top: 1px solid var(--line); padding-top: 12px; font-weight: 600; font-size: 16px; display: flex; gap: 8px; }
+.pain .fix svg { flex-shrink: 0; margin-top: 3px; color: var(--accent-text); }
+
+/* Feature panels */
+.feature { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 56px; align-items: center; padding-block: 56px; border-top: 1px solid var(--line); }
+.feature:first-of-type { border-top: 0; }
+.feature-copy { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.feature-copy h3 { font-size: clamp(32px, 4vw, 46px); font-weight: 800; }
+.feature-copy p { color: var(--muted); font-size: 18px; max-width: 32em; }
+.ticks { list-style: none; padding: 0; margin: 4px 0 0; display: flex; flex-direction: column; gap: 10px; }
+.ticks li { display: flex; gap: 10px; font-size: 16.5px; }
+.ticks li svg { flex-shrink: 0; margin-top: 4px; color: var(--accent-text); }
+.module-tag { align-self: flex-start; background: var(--chip-bg); color: var(--chip-fg); font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 999px; padding: 5px 12px; }
+.feature-visual { min-width: 0; display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; }
+.feature-visual .laptop { width: 100%; }
+@media (min-width: 900px) { .feature.flip .feature-visual { order: -1; } }
+
+.m-table { width: 100%; border-collapse: collapse; font-size: 8px; }
+.m-table th { text-align: left; font-weight: 600; color: var(--ui-muted); padding: 3px 4px; font-size: 7px; }
+.m-table td { padding: 4px; border-top: 1px solid var(--ui-line); white-space: nowrap; }
+.m-table tr.flag td { background: #FDF0EF; }
+.m-seg { display: flex; background: var(--ui-card); border-radius: 5px; padding: 2px; gap: 2px; font-size: 8px; font-weight: 600; }
+.m-seg span { padding: 3px 6px; border-radius: 4px; color: var(--ui-ink); }
+.m-seg span.on { background: var(--ui-blue); color: var(--ui-white); }
+.m-btn { background: var(--ui-green); color: var(--ui-white); border-radius: 5px; padding: 4px 8px; font-size: 8px; font-weight: 700; }
+.m-btn.ghost { background: var(--ui-card); color: var(--ui-blue); border: 1px solid var(--ui-blue); }
+.m-map { background: var(--ui-map); border-radius: 6px; overflow: hidden; min-height: 0; }
+.m-map svg { display: block; width: 100%; height: 100%; }
+
+/* Steps */
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 18px; counter-reset: step; }
+.step { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 10px; }
+.step .n { font-family: var(--display); font-weight: 800; font-size: 44px; line-height: 1; color: var(--brand); }
+.step h3 { font-size: 24px; font-weight: 700; }
+.step p { color: var(--muted); font-size: 16px; }
+
+/* Benefits strip */
+.benefits { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 0; border-top: 1px solid var(--line); }
+.benefit { display: flex; gap: 14px; padding: 22px 8px 22px 0; border-bottom: 1px solid var(--line); }
+.benefit svg { flex-shrink: 0; color: var(--brand); margin-top: 2px; }
+.benefit b { display: block; font-size: 17px; }
+.benefit span { color: var(--muted); font-size: 15.5px; }
+
+/* Closing CTA */
+.close { background: var(--band); color: var(--on-band); }
+.close .wrap { padding-block: 80px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); gap: 40px; align-items: center; }
+.close h2 { font-size: clamp(40px, 6vw, 68px); font-weight: 800; }
+.close p { color: var(--on-band-muted); font-size: 19px; margin-top: 14px; max-width: 30em; }
+.contact { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(192, 235, 252, 0.25); border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 16px; }
+.contact-row { display: flex; flex-direction: column; gap: 4px; }
+.contact-row small { color: var(--on-band-muted); font-weight: 600; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; }
+.contact-val { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.contact-val output { font-family: var(--display); font-weight: 700; font-size: 30px; letter-spacing: 0.02em; user-select: all; }
+.copy { min-height: 40px; padding: 0 14px; border-radius: 10px; border: 1.5px solid var(--on-band-muted); background: transparent; color: var(--on-band); font-family: var(--body); font-weight: 600; font-size: 14px; cursor: pointer; }
+.contact .note { font-size: 14px; color: var(--on-band-muted); }
+
+footer .wrap { padding-block: 28px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; color: var(--muted); font-size: 14px; }
+
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  section.block { padding-block: 60px; }
+  .hero-visual .phone { width: 128px; right: -4px; }
+  .phone { width: 210px; }
+  .feature { gap: 32px; padding-block: 40px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-visual .laptop { animation: rise 0.7s ease-out both; }
+  .hero-visual .phone { animation: rise 0.7s 0.15s ease-out both; }
+  @keyframes rise { from { transform: translateY(14px); } to { transform: none; } }
+}
+</style>
+
+<svg width="0" height="0" style="position: absolute;" aria-hidden="true">
+  <defs>
+    <symbol id="logo" viewBox="0 0 96 96"><rect x="4" y="4" width="88" height="88" rx="22" fill="#53D565"></rect><path d="M24 50l15 15 32-34" fill="none" stroke="#0E3F63" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"></path><path d="M74 10l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="#FFFFFF"></path></symbol>
+    <symbol id="tick" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></symbol>
+  </defs>
+</svg>
+
+<header class="cover">
+  <div class="wrap">
+    <div class="topbar">
+      <a class="brand" href="#inicio" aria-label="Todo Impecable S.A.">
+        <svg width="40" height="40" aria-hidden="true"><use href="#logo"></use></svg>
+        <span class="brand-name"><b>TODO IMPECABLE</b><span>S.A.</span></span>
+      </a>
+      <a class="btn btn-onband" href="#demo">Pedir una demo</a>
+    </div>
+
+    <div class="hero" id="inicio">
+      <div class="hero-copy">
+        <div class="eyebrow">Software de gestión para empresas de limpieza</div>
+        <h1>Tu equipo, tus equipos y tus insumos, <em>bajo control.</em></h1>
+        <p>Deja de pagar horas que nadie trabajó, de perder clientes por quejas sin respuesta y de cotizar a ojo. Una sola plataforma para tu personal, tus herramientas, tus insumos y las reservas de tus clientes.</p>
+        <div class="hero-actions">
+          <a class="btn btn-cta" href="#demo">Agenda una demo</a>
+          <a class="btn btn-onband" href="#modulos">Ver las pantallas</a>
+        </div>
+        <div class="hero-proof">
+          <span><svg width="16" height="16" aria-hidden="true"><use href="#tick"></use></svg>Hecho para República Dominicana</span>
+          <span><svg width="16" height="16" aria-hidden="true"><use href="#tick"></use></svg>Precios en RD$</span>
+          <span><svg width="16" height="16" aria-hidden="true"><use href="#tick"></use></svg>Funciona sin señal</span>
+        </div>
+      </div>
+
+      <div class="hero-visual" role="img" aria-label="Panel de gestión en una laptop y la app del operario en un celular">
+        <div class="laptop">
+          <div class="screen">
+            <div class="m-side">
+              <div class="m-logo"><svg width="14" height="14" aria-hidden="true"><use href="#logo"></use></svg>TODO IMPECABLE</div>
+              <div class="m-nav on">Panel</div><div class="m-nav">Personal</div><div class="m-nav">Herramientas</div><div class="m-nav">Insumos</div><div class="m-nav">Reportes</div><div class="m-nav">Configuración</div>
+            </div>
+            <div class="m-main">
+              <div><div class="m-sub">Jueves · datos de ejemplo</div><div class="m-title">Buenos días, Laura</div></div>
+              <div class="m-kpis">
+                <div class="m-kpi"><small>Personal en turno</small><b>12/14</b></div>
+                <div class="m-kpi"><small>Llegadas tarde</small><b style="color: var(--ui-warn);">2</b></div>
+                <div class="m-kpi"><small>Servicios hoy</small><b>7</b></div>
+                <div class="m-kpi"><small>Insumos bajo mínimo</small><b style="color: var(--ui-bad);">3</b></div>
+              </div>
+              <div class="m-row2">
+                <div class="m-card"><h4>Servicios de hoy</h4>
+                  <div class="m-line"><span>8:00 Torre Naco</span><span class="pill ok">En sitio</span></div>
+                  <div class="m-line"><span>8:30 Fam. Rodríguez</span><span class="pill warn">Tarde 14 min</span></div>
+                  <div class="m-line"><span>9:00 Local Av. Lincoln</span><span class="pill ok">En sitio</span></div>
+                  <div class="m-line"><span>14:00 Colegio Los Prados</span><span class="pill info">Programado</span></div>
+                </div>
+                <div class="m-card"><h4>Alertas</h4>
+                  <div class="m-alert bad">Pedro S. salió de la geocerca 11:20</div>
+                  <div class="m-alert bad">Hidrolavadora HL-02 sin devolver</div>
+                  <div class="m-alert warn">3 insumos bajo mínimo</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="phone">
+          <div class="screen">
+            <div class="p-head"><small>Hola, Yudelka</small><b>Tu turno</b></div>
+            <div class="p-body">
+              <div class="p-map"><svg viewBox="0 0 160 78" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="160" height="78" fill="#E4ECEF"></rect><path d="M0 28 L160 20" stroke="#FFFFFF" stroke-width="6"></path><path d="M55 0 L62 78" stroke="#FFFFFF" stroke-width="6"></path><circle cx="95" cy="44" r="26" fill="#53D565" fill-opacity="0.2" stroke="#1B7F35" stroke-width="1.5" stroke-dasharray="4 3"></circle><circle cx="88" cy="50" r="5" fill="#1B7F35" stroke="#FFFFFF" stroke-width="2"></circle></svg></div>
+              <div class="p-okbar">Dentro del sitio · 35 m</div>
+              <div class="p-btn">Marcar entrada</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="block" aria-labelledby="pains-title">
+    <div class="wrap">
+      <div class="block-head">
+        <div class="eyebrow">Lo que hoy se pierde</div>
+        <h2 id="pains-title">Seis problemas que le cuestan dinero a tu empresa todos los meses</h2>
+        <p>Si coordinas tu equipo por WhatsApp y llevas el control en libretas o Excel, estas situaciones te van a sonar. Están ordenadas por lo que más pesa en tu bolsillo.</p>
+      </div>
+      <div class="pains">
+        <article class="pain">
+          <div class="q">Pagas horas que nadie trabajó</div>
+          <p class="now">Llegadas tarde, salidas antes de hora y ausencias sin aviso. Te enteras cuando el cliente llama, y a las 7 de la mañana estás buscando un reemplazo.</p>
+          <p class="fix"><svg width="18" height="18" aria-hidden="true"><use href="#tick"></use></svg>Fichaje con GPS y selfie en cada sitio, alerta de ausencia a tiempo para mandar reemplazo y liquidación con las horas reales.</p>
+        </article>
+        <article class="pain">
+          <div class="q">Un cliente se queja y no tienes cómo responder</div>
+          <p class="now">"No limpiaron bien", "llegaron tarde". Sin pruebas, una queja mal manejada te cuesta el contrato.</p>
+          <p class="fix"><svg width="18" height="18" aria-hidden="true"><use href="#tick"></use></svg>Llegada verificada, checklist de tareas y fotos de antes y después que el cliente recibe en su reporte.</p>
+        </article>
+        <article class="pain">
+          <div class="q">¿Ese cliente te deja ganancia?</div>
+          <p class="now">Cotizas a ojo. Sin saber cuántas horas e insumos lleva cada servicio, hay clientes con los que pierdes plata y no lo sabes.</p>
+          <p class="fix"><svg width="18" height="18" aria-hidden="true"><use href="#tick"></use></svg>Costo real por cliente y por sitio: horas trabajadas más insumos consumidos en cada trabajo.</p>
+        </article>
+        <article class="pain">
+          <div class="q">Todo pasa por tu WhatsApp</div>
+          <p class="now">Reservas, cambios, reclamos y quién va a dónde dependen de tu teléfono. Más clientes significa más caos, no más ganancia.</p>
+          <p class="fix"><svg width="18" height="18" aria-hidden="true"><use href="#tick"></use></svg>Tus clientes reservan en la app, tu equipo ve su turno en la suya y tú controlas todo desde un panel.</p>
+        </article>
+        <article class="pain">
+          <div class="q">Equipos que no vuelven, insumos que se acaban</div>
+          <p class="now">La hidrolavadora que nadie devolvió y el cloro que se terminó justo el día del servicio grande.</p>
+          <p class="fix"><svg width="18" height="18" aria-hidden="true"><use href="#tick"></use></svg>Herramientas con QR y responsable, retiros de insumos por trabajo y alerta de stock mínimo.</p>
+        </article>
+        <article class="pain">
+          <div class="q">Cobrar cuesta más que limpiar</div>
+          <p class="now">Servicios hechos que nadie facturó y clientes empresa que discuten la factura porque no ven qué se hizo.</p>
+          <p class="fix"><svg width="18" height="18" aria-hidden="true"><use href="#tick"></use></svg>Cada servicio terminado queda listo para facturar, con su reporte como respaldo del cobro.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="modulos" aria-labelledby="mod-title" style="background: var(--surface); border-block: 1px solid var(--line);">
+    <div class="wrap">
+      <div class="block-head">
+        <div class="eyebrow">Las pantallas</div>
+        <h2 id="mod-title">Todo lo que pasa en la calle, visible desde la oficina</h2>
+        <p>Un panel web para la administración, una app para tus operarios y otra para tus clientes. Los datos que ves son de ejemplo.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-copy">
+          <span class="module-tag">Personal</span>
+          <h3>Asistencia por GPS y horario</h3>
+          <p>Ves en el mapa quién está en cada sitio y te enteras al momento si alguien llega tarde o se va antes de terminar.</p>
+          <ul class="ticks">
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#tick"></use></svg>Geocerca de 100 m por sitio, ajustable</li>
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#tick"></use></svg>Horario semanal con horas programadas y horas reales</li>
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#tick"></use></svg>Las horas reales salen listas para la nómina</li>
+          </ul>
+        </div>
+        <div class="feature-visual" role="img" aria-label="Pantalla de personal con mapa en vivo y lista de operarios en turno">
+          <div class="laptop">
+            <div class="screen">
+              <div class="m-side">
+                <div class="m-logo"><svg width="14" height="14" aria-hidden="true"><use href="#logo"></use></svg>TODO IMPECABLE</div>
+                <div class="m-nav">Panel</div><div class="m-nav on">Personal</div><div class="m-nav">Herramientas</div><div class="m-nav">Insumos</div><div class="m-nav">Reportes</div><div class="m-nav">Configuración</div>
+              </div>
+              <div class="m-main">
+                <div class="m-title">Personal · en vivo</div>
+                <div class="m-row2" style="flex: 1;">
+                  <div class="m-map">
+                    <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                      <rect width="300" height="200" fill="#E4ECEF"></rect>
+                      <path d="M0 55 L300 40" stroke="#FFFFFF" stroke-width="8"></path><path d="M0 125 L300 110" stroke="#FFFFFF" stroke-width="6"></path>
+                      <path d="M85 0 L100 200" stroke="#FFFFFF" stroke-width="8"></path><path d="M200 0 L208 200" stroke="#FFFFFF" stroke-width="6"></path>
+                      <path d="M0 175 C80 185 200 165 300 182 L300 200 L0 200 Z" fill="#BFE2F2"></path>
+                      <circle cx="120" cy="85" r="30" fill="#53D565" fill-opacity="0.18" stroke="#1B7F35" stroke-width="1.5" stroke-dasharray="5 4"></circle>
+                      <circle cx="112" cy="80" r="5" fill="#1B7F35" stroke="#FFFFFF" stroke-width="2"></circle><circle cx="128" cy="92" r="5" fill="#1B7F35" stroke="#FFFFFF" stroke-width="2"></circle>
+                      <circle cx="235" cy="75" r="28" fill="#53D565" fill-opacity="0.18" stroke="#1B7F35" stroke-width="1.5" stroke-dasharray="5 4"></circle>
+                      <circle cx="230" cy="78" r="5" fill="#1B7F35" stroke="#FFFFFF" stroke-width="2"></circle><circle cx="278" cy="115" r="6" fill="#B42318" stroke="#FFFFFF" stroke-width="2"></circle>
+                      <circle cx="170" cy="150" r="24" fill="#53D565" fill-opacity="0.18" stroke="#1B7F35" stroke-width="1.5" stroke-dasharray="5 4"></circle>
+                      <circle cx="172" cy="150" r="5.5" fill="#D97706" stroke="#FFFFFF" stroke-width="2"></circle>
+                    </svg>
+                  </div>
+                  <div class="m-card"><h4>En turno ahora</h4>
+                    <div class="m-line"><span>Pedro Santana</span><span class="pill bad">Fuera 11:20</span></div>
+                    <div class="m-line"><span>Carmen Vásquez</span><span class="pill warn">Tarde 14 min</span></div>
+                    <div class="m-line"><span>Yudelka Reyes</span><span class="pill ok">En sitio</span></div>
+                    <div class="m-line"><span>Ramón Pérez</span><span class="pill ok">En sitio</span></div>
+                    <div class="m-line"><span>Ana Martínez</span><span class="pill info">14:00</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature flip">
+        <div class="feature-copy">
+          <span class="module-tag">Herramientas</span>
+          <h3>Cada equipo con dueño y ubicación</h3>
+          <p>El operario escanea el QR al recibir y al devolver. Si una herramienta no vuelve al cerrar el turno, recibes una alerta.</p>
+          <ul class="ticks">
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#tick"></use></svg>Estado: disponible, asignada, sin devolver o en mantenimiento</li>
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#tick"></use></svg>Foto obligatoria en cada entrega y devolución</li>
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#tick"></use></svg>Recordatorio de mantenimiento preventivo</li>
+          </ul>
+        </div>
+        <div class="feature-visual" role="img" aria-label="Pantalla de inventario de herramientas con estados y responsables">
+          <div class="laptop">
+            <div class="screen">
+              <div class="m-side">
+                <div class="m-logo"><svg width="14" height="14" aria-hidden="true"><use href="#logo"></use></svg>TODO IMPECABLE</div>
+                <div class="m-nav">Panel</div><div class="m-nav">Personal</div><div class="m-nav on">Herramientas</div><div class="m-nav">Insumos</div><div class="m-nav">Reportes</div><div class="m-nav">Configuración</div>
+              </div>
+              <div class="m-main">
+                <div class="m-title">Herramientas</div>
+                <div class="m-kpis">
+                  <div class="m-kpi"><small>Total</small><b>46</b></div>
+                  <div class="m-kpi"><small>Disponibles</small><b style="color: var(--ui-ok);">24</b></div>
+                  <div class="m-kpi"><small>Asignadas</small><b>18</b></div>
+                  <div class="m-kpi"><small>Mantenimiento</small><b style="color: var(--ui-warn);">3</b></div>
+                </div>
+                <div class="m-card">
+                  <table class="m-table">
+                    <thead><tr><th>Código</th><th>Herramienta</th><th>Estado</th><th>Asignada a</th><th>Sitio</th></tr></thead>
+                    <tbody>
+                      <tr class="flag"><td><b>HL-02</b></td><td>Hidrolavadora</td><td><span class="pill bad">Sin devolver</span></td><td>Ramón P.</td><td>Av. Lincoln</td></tr>
+                      <tr><td><b>AS-05</b></td><td>Aspiradora industrial</td><td><span class="pill info">Asignada</span></td><td>Yudelka R.</td><td>Torre Naco</td></tr>
+                      <tr><td><b>LU-01</b></td><td>Lustradora de pisos</td><td><span class="pill info">Asignada</span></td><td>Equipo B</td><td>Av. Lincoln</td></tr>
+                      <tr><td><b>IN-03</b></td><td>Inyectora-extractora</td><td><span class="pill ok">Disponible</span></td><td>—</td><td>Depósito</td></tr>
+                      <tr><td><b>VA-02</b></td><td>Vaporizadora</td><td><span class="pill warn">Mantenimiento</span></td><td>—</td><td>Taller</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-copy">
+          <span class="module-tag">Insumos</span>
+          <h3>Sabes cuánto cuesta limpiar cada cliente</h3>
+          <p>Cada retiro de cloro, desengrasante o bolsas queda ligado a un trabajo, con quién lo retiró y cuánto se llevó. Lo que sobra vuelve como devolución.</p>
+          <ul class="ticks">
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#tick"></use></svg>Stock con alerta de mínimo para reponer a tiempo</li>
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#tick"></use></svg>Consumo por cliente, por sitio y por servicio</li>
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#tick"></use></svg>Alta de insumos con etiqueta QR y hoja de seguridad</li>
+          </ul>
+        </div>
+        <div class="feature-visual" role="img" aria-label="Pantalla de insumos con stock bajo mínimo y retiros por trabajo">
+          <div class="laptop">
+            <div class="screen">
+              <div class="m-side">
+                <div class="m-logo"><svg width="14" height="14" aria-hidden="true"><use href="#logo"></use></svg>TODO IMPECABLE</div>
+                <div class="m-nav">Panel</div><div class="m-nav">Personal</div><div class="m-nav">Herramientas</div><div class="m-nav on">Insumos</div><div class="m-nav">Reportes</div><div class="m-nav">Configuración</div>
+              </div>
+              <div class="m-main">
+                <div class="m-title">Insumos</div>
+                <div class="m-kpis">
+                  <div class="m-kpi"><small>Activos</small><b>32</b></div>
+                  <div class="m-kpi"><small>Bajo mínimo</small><b style="color: var(--ui-bad);">3</b></div>
+                  <div class="m-kpi"><small>Retiros hoy</small><b>9</b></div>
+                  <div class="m-kpi"><small>Consumo del mes</small><b style="font-size: 12px;">RD$ [MONTO]</b></div>
+                </div>
+                <div class="m-card"><h4>Consumo por trabajo</h4>
+                  <table class="m-table">
+                    <thead><tr><th>Hora</th><th>Trabajo</th><th>Insumo</th><th>Cantidad</th><th>Retiró</th></tr></thead>
+                    <tbody>
+                      <tr><td>7:40</td><td>Torre Naco</td><td>Desengrasante</td><td><b>−1 galón</b></td><td>Yudelka R.</td></tr>
+                      <tr><td>8:20</td><td>Fam. Rodríguez</td><td>Desinfectante</td><td><b>−0,5 galón</b></td><td>Carmen V.</td></tr>
+                      <tr><td>8:45</td><td>Av. Lincoln</td><td>Bolsas 30 gal</td><td><b>−2 paq.</b></td><td>Ramón P.</td></tr>
+                      <tr><td>Ayer</td><td>Av. Lincoln</td><td>Desengrasante</td><td><b style="color: var(--ui-ok);">+0,5 galón</b></td><td>Devolución</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature flip">
+        <div class="feature-copy">
+          <span class="module-tag">Reportes</span>
+          <h3>La liquidación sale sola: semana, quincena o mes</h3>
+          <p>Eliges el período y ves por operario los días trabajados, las horas reales contra las programadas, las llegadas tarde, las ausencias y las horas extra. Con eso cierras la nómina sin sumar a mano.</p>
+          <ul class="ticks">
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#tick"></use></svg>Períodos semanal, quincenal, mensual o por rango de fechas</li>
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#tick"></use></svg>Descuentos por tardanza y recargos por horas extra según tus reglas</li>
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#tick"></use></svg>Exporta a Excel o a PDF para que cada operario firme</li>
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#tick"></use></svg>Además: consumo de insumos por cliente y horas por sitio</li>
+          </ul>
+        </div>
+        <div class="feature-visual" role="img" aria-label="Reporte de liquidación quincenal con asistencia, tardanzas, ausencias y horas extra por operario">
+          <div class="laptop">
+            <div class="screen">
+              <div class="m-side">
+                <div class="m-logo"><svg width="14" height="14" aria-hidden="true"><use href="#logo"></use></svg>TODO IMPECABLE</div>
+                <div class="m-nav">Panel</div><div class="m-nav">Personal</div><div class="m-nav">Herramientas</div><div class="m-nav">Insumos</div><div class="m-nav on">Reportes</div><div class="m-nav">Configuración</div>
+              </div>
+              <div class="m-main">
+                <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 6px; flex-wrap: wrap;">
+                  <div><div class="m-sub">Liquidación · 1 al 15 de octubre</div><div class="m-title">Reportes</div></div>
+                  <div class="m-seg"><span>Semana</span><span class="on">Quincena</span><span>Mes</span><span>Rango</span></div>
+                </div>
+                <div class="m-kpis">
+                  <div class="m-kpi"><small>Asistencia</small><b style="color: var(--ui-ok);">96%</b></div>
+                  <div class="m-kpi"><small>Llegadas tarde</small><b style="color: var(--ui-warn);">11</b></div>
+                  <div class="m-kpi"><small>Ausencias</small><b style="color: var(--ui-bad);">3</b></div>
+                  <div class="m-kpi"><small>Horas extra</small><b>14,5 h</b></div>
+                </div>
+                <div class="m-card">
+                  <table class="m-table">
+                    <thead><tr><th>Operario</th><th>Días</th><th>Horas prog.</th><th>Horas reales</th><th>Tardanzas</th><th>Ausencias</th><th>Extra</th><th>A pagar</th></tr></thead>
+                    <tbody>
+                      <tr><td><b>Yudelka Reyes</b></td><td>11</td><td>48</td><td>47,6</td><td>0</td><td>0</td><td>2,0 h</td><td>RD$ [MONTO]</td></tr>
+                      <tr><td><b>Carmen Vásquez</b></td><td>10</td><td>48</td><td>44,1</td><td><span class="pill warn">4 · 52 min</span></td><td>0</td><td>0</td><td>RD$ [MONTO]</td></tr>
+                      <tr class="flag"><td><b>Pedro Santana</b></td><td>8</td><td>40</td><td>30,5</td><td><span class="pill warn">3 · 35 min</span></td><td><span class="pill bad">2</span></td><td>0</td><td>RD$ [MONTO]</td></tr>
+                      <tr><td><b>Ramón Pérez</b></td><td>11</td><td>64</td><td>70,0</td><td>1 · 6 min</td><td>0</td><td>6,0 h</td><td>RD$ [MONTO]</td></tr>
+                      <tr><td><b>Ana Martínez</b></td><td>10</td><td>40</td><td>39,2</td><td>1 · 12 min</td><td>1</td><td>0</td><td>RD$ [MONTO]</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div style="display: flex; gap: 6px; justify-content: flex-end;">
+                  <span class="m-btn ghost">Exportar Excel</span><span class="m-btn">PDF para firma</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-copy">
+          <span class="module-tag">Apps móviles</span>
+          <h3>Una app para tu equipo, otra para tus clientes</h3>
+          <p>El operario ve su turno, marca entrada y confirma las herramientas que recibió. Tu cliente cotiza, reserva y sigue el servicio hasta recibir el reporte con fotos.</p>
+          <ul class="ticks">
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#tick"></use></svg>Fichaje sin señal: se sincroniza al volver la conexión</li>
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#tick"></use></svg>Reserva con precio estimado y pago en línea</li>
+            <li><svg width="18" height="18" aria-hidden="true"><use href="#tick"></use></svg>Fotos de antes y después y calificación del servicio</li>
+          </ul>
+        </div>
+        <div class="feature-visual" role="img" aria-label="App del operario para marcar entrada y app del cliente con el seguimiento del servicio">
+          <div class="phone">
+            <div class="screen">
+              <div class="p-head"><small>Hola, Yudelka · jueves</small><b>Tu turno de hoy</b></div>
+              <div class="p-body">
+                <div class="p-card"><strong>Torre Naco · piso 4</strong><span class="p-muted">8:00 a. m. – 12:00 p. m.</span></div>
+                <div class="p-map"><svg viewBox="0 0 160 78" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="160" height="78" fill="#E4ECEF"></rect><path d="M0 28 L160 20" stroke="#FFFFFF" stroke-width="6"></path><path d="M55 0 L62 78" stroke="#FFFFFF" stroke-width="6"></path><circle cx="95" cy="44" r="26" fill="#53D565" fill-opacity="0.2" stroke="#1B7F35" stroke-width="1.5" stroke-dasharray="4 3"></circle><circle cx="88" cy="50" r="5" fill="#1B7F35" stroke="#FFFFFF" stroke-width="2"></circle></svg></div>
+                <div class="p-okbar">Estás dentro del sitio · a 35 m</div>
+                <div class="p-btn">Marcar entrada</div>
+                <div class="p-card"><strong>Herramientas asignadas</strong><span class="p-muted">AS-05 Aspiradora · escanear QR</span><span class="p-muted">KQ-11 Kit de químicos · recibido</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="phone">
+            <div class="screen">
+              <div class="p-head"><small>Sábado · Piantini</small><b>Estamos limpiando tu hogar</b><div class="p-bar"><span></span></div></div>
+              <div class="p-body">
+                <div class="p-card">
+                  <div class="p-step"><span class="p-dot"></span><span>Reserva confirmada</span></div>
+                  <div class="p-step"><span class="p-dot"></span><span>El equipo llegó 7:56 · verificado por GPS</span></div>
+                  <div class="p-step"><span class="p-dot now"></span><span><b>Limpieza en curso</b> · 6 de 10 tareas</span></div>
+                  <div class="p-step"><span class="p-dot next"></span><span class="p-muted">Reporte con fotos</span></div>
+                </div>
+                <div class="p-grid">
+                  <div class="p-tile"><i></i>Limpieza profunda</div>
+                  <div class="p-tile"><i></i>Post-construcción</div>
+                </div>
+                <div class="p-btn blue">Ver reporte</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="ben-title">
+    <div class="wrap">
+      <div class="block-head">
+        <div class="eyebrow">Lo que ganas</div>
+        <h2 id="ben-title">Menos llamadas, menos pérdidas, mejores precios</h2>
+      </div>
+      <div class="benefits">
+        <div class="benefit"><svg width="22" height="22" aria-hidden="true"><use href="#tick"></use></svg><div><b>Pagas las horas reales</b><span>La liquidación semanal, quincenal o mensual sale del fichaje, no de lo que cada uno anota.</span></div></div>
+        <div class="benefit"><svg width="22" height="22" aria-hidden="true"><use href="#tick"></use></svg><div><b>Cotizas con números</b><span>Conoces el costo de insumos y horas de cada tipo de servicio.</span></div></div>
+        <div class="benefit"><svg width="22" height="22" aria-hidden="true"><use href="#tick"></use></svg><div><b>Cuidas tus equipos</b><span>Cada herramienta tiene responsable, historial y mantenimiento.</span></div></div>
+        <div class="benefit"><svg width="22" height="22" aria-hidden="true"><use href="#tick"></use></svg><div><b>Tus clientes confían más</b><span>Ven la llegada del equipo y reciben fotos del trabajo terminado.</span></div></div>
+        <div class="benefit"><svg width="22" height="22" aria-hidden="true"><use href="#tick"></use></svg><div><b>Reaccionas a tiempo</b><span>Alertas de tardanzas, salidas de sitio, equipos sin devolver y stock bajo.</span></div></div>
+        <div class="benefit"><svg width="22" height="22" aria-hidden="true"><use href="#tick"></use></svg><div><b>Todo en un solo lugar</b><span>Dejas de cruzar chats, libretas y hojas de Excel.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="steps-title" style="padding-top: 0;">
+    <div class="wrap">
+      <div class="block-head">
+        <div class="eyebrow">Cómo empezamos</div>
+        <h2 id="steps-title">En marcha en tres pasos</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="n">1</span><h3>Cargamos tu operación</h3><p>Damos de alta tu personal, tus sitios con su geocerca, tus herramientas y tus insumos.</p></div>
+        <div class="step"><span class="n">2</span><h3>Tu equipo instala la app</h3><p>Capacitamos a tus operarios para fichar, escanear QR y registrar retiros desde el primer día.</p></div>
+        <div class="step"><span class="n">3</span><h3>Controlas desde el panel</h3><p>Sigues el día en vivo y activas la app de reservas para tus clientes cuando estés listo.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="close" id="demo" aria-labelledby="demo-title">
+  <div class="wrap">
+    <div>
+      <h2 id="demo-title">Mira tu empresa funcionando en una demo de 20 minutos</h2>
+      <p>Escríbenos por WhatsApp con el nombre de tu empresa y cuántos operarios tienes. Te mostramos el panel con tus propios sitios.</p>
+    </div>
+    <div class="contact">
+      <div class="contact-row">
+        <small>WhatsApp</small>
+        <div class="contact-val"><output id="wa">[WHATSAPP]</output><button class="copy" type="button" data-copy="wa" id="copy-wa">Copiar</button></div>
+      </div>
+      <div class="contact-row">
+        <small>Correo</small>
+        <div class="contact-val"><output id="mail" style="font-size: 22px;">[CORREO]</output><button class="copy" type="button" data-copy="mail" id="copy-mail">Copiar</button></div>
+      </div>
+      <p class="note">Todo Impecable S.A. · Santo Domingo, República Dominicana</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© Todo Impecable S.A.</span>
+    <span>Las pantallas muestran datos de ejemplo.</span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var el = document.getElementById(btn.dataset.copy);
+    var text = el.textContent.trim();
+    var done = function () { btn.textContent = 'Copiado'; setTimeout(function () { btn.textContent = 'Copiar'; }, 1600); };
+    var fallback = function () {
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = 'Seleccionado';
+      setTimeout(function () { btn.textContent = 'Copiar'; }, 1600);
+    };
+    try {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } catch (e) { fallback(); }
+  });
+});
+</script>
+
+</body></html>
