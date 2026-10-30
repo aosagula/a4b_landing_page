@@ -259,7 +259,7 @@ export function FirstContactDepositoPage() {
   );
 }
 
-function CentralizeEmbed() {
+export function CentralizeEmbed() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
